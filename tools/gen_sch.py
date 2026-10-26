@@ -60,9 +60,9 @@ parts = [
     ("R2", "Device", "R", "10k", FP_R, 285, 60, {"1": "VSW", "2": "SDA"},
      {"MPN": "RC0603FR-0710KL", "Manufacturer": "Yageo"}, False),
     # --- External connectors ---
-    ("J2", "Connector_Generic", "Conn_01x04",     "OLED SSD1306 0.96in", "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
-         330, 70, {"1": "GND", "2": "VSW", "3": "SDA", "4": "SCL"},
-         {"MPN": "SM04B-SRSS-TB(LF)(SN)", "Manufacturer": "JST", "Note": "STEMMA QT pinout; cable e.g. Adafruit 4397 to OLED header"}, False),
+    ("J2", "Connector_Generic", "Conn_01x04",     "OLED SSD1306 0.96in", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+         330, 70, {"1": "GND", "2": "VSW", "3": "SCL", "4": "SDA"},
+         {"MPN": "Supplied Dupont wires soldered to pads (opt. 1x04 2.54mm header)", "Manufacturer": "-", "Note": "ELEGOO 0.96in SSD1306 module, pin order GND-VCC-SCL-SDA"}, False),
     ("J3", "Connector_Generic", "Conn_01x04", "STEMMA QT soil sensor", "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
      330, 110, {"1": "GND", "2": "VSW", "3": "SDA", "4": "SCL"},
      {"MPN": "SM04B-SRSS-TB(LF)(SN)", "Manufacturer": "JST", "Note": "Adafruit 4026 capacitive soil sensor (I2C 0x36)"}, False),

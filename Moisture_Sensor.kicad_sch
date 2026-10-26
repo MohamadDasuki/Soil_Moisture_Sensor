@@ -3874,7 +3874,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
 			(at 330.2 69.85 0)
 			(hide yes)
 			(effects
@@ -3892,7 +3892,7 @@
 				)
 			)
 		)
-		(property "MPN" "SM04B-SRSS-TB(LF)(SN)"
+		(property "MPN" "Supplied Dupont wires soldered to pads (opt. 1x04 2.54mm header)"
 			(at 330.2 69.85 0)
 			(hide yes)
 			(effects
@@ -3901,7 +3901,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "JST"
+		(property "Manufacturer" "-"
 			(at 330.2 69.85 0)
 			(hide yes)
 			(effects
@@ -3910,7 +3910,7 @@
 				)
 			)
 		)
-		(property "Note" "STEMMA QT pinout; cable e.g. Adafruit 4397 to OLED header"
+		(property "Note" "ELEGOO 0.96in SSD1306 module, pin order GND-VCC-SCL-SDA"
 			(at 330.2 69.85 0)
 			(hide yes)
 			(effects
@@ -3960,7 +3960,7 @@
 		)
 		(uuid "49a47770-4873-5612-b705-289b3bcac332")
 	)
-	(label "SDA"
+	(label "SCL"
 		(at 325.12 72.39 180)
 		(effects
 			(font
@@ -3970,7 +3970,7 @@
 		)
 		(uuid "885485b1-910d-5d61-a347-dd862bd7b2c5")
 	)
-	(label "SCL"
+	(label "SDA"
 		(at 325.12 74.93 180)
 		(effects
 			(font

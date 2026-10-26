@@ -13,37 +13,38 @@ FPLIB = r"C:\Program Files\KiCad\10.0\share\kicad\footprints"
 KCLI = r"C:\Program Files\KiCad\10.0\bin\kicad-cli.exe"
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-W, H = 25.0, 17.0          # board size (mm)
+W, H = 27.8, 17.0          # board size (mm)
 OX, OY = 100.0, 100.0      # board origin on the page
 R_CORNER = 1.0
 
 # ref: (x, y, rot_deg, side)   coordinates relative to board top-left
 PLACE = {
-    "J2": (4.2, 3.4, 180, "F"),       # OLED  (cable exits top edge)
+    "J2": (1.8, 1.6, 90, "F"),        # OLED 2.54mm pads, pin1 left: GND VCC SCL SDA
     "J3": (W - 4.2, 3.4, 180, "F"),   # soil sensor (cable exits top edge)
-    "U2": (12.5, 2.2, 0, "F"),
-    "C6": (9.4, 2.2, 90, "F"),
-    "C4": (15.6, 2.2, 90, "F"),
-    "C5": (9.4, 5.6, 90, "F"),
-    "C3": (14.2, 5.6, 90, "F"),
-    "C2": (11.8, 5.6, 90, "F"),
+    "U2": (15.3, 2.2, 0, "F"),
+    "C6": (12.2, 2.2, 90, "F"),
+    "C4": (18.4, 2.2, 90, "F"),
+    "C5": (12.2, 5.6, 90, "F"),
+    "C3": (17.0, 5.6, 90, "F"),
+    "C2": (14.6, 5.6, 90, "F"),
     "J5": (2.8, 9.6, 0, "F"),         # battery JST-PH, vertical
     "Q1": (2.3, 15.0, 0, "F"),
     "C1": (5.8, 15.0, 90, "F"),
-    "U1": (11.6, 12.2, 0, "F"),
-    "R1": (17.0, 9.0, 90, "F"),
-    "R2": (18.8, 9.0, 90, "F"),
-    "R3": (20.6, 9.0, 90, "F"),
-    "SW1": (20.6, 14.6, 0, "F"),
-    "J1": (20.6, 9.5, 0, "B"),        # UPDI pads on bottom
+    "U1": (14.4, 12.2, 0, "F"),
+    "R1": (19.8, 9.0, 90, "F"),
+    "R2": (21.6, 9.0, 90, "F"),
+    "R3": (23.4, 9.0, 90, "F"),
+    "SW1": (23.4, 14.6, 0, "F"),
+    "J1": (23.4, 9.5, 0, "B"),        # UPDI pads on bottom
 }
 
 SILK = [  # (text, x, y, rot, side)
-    ("OLED", 4.2, 0.9, 0, "B"),
+    ("OLED", 5.6, 4.6, 0, "B"),
+    ("G", 1.8, 3.9, 0, "F"), ("V", 4.34, 3.9, 0, "F"), ("C", 6.88, 3.9, 0, "F"), ("D", 9.42, 3.9, 0, "F"),
     ("SENSOR", W - 4.2, 0.9, 0, "B"),
     ("BATT", 3.8, 12.6, 0, "B"),
-    ("UPDI", 20.6, 15.6, 0, "B"),
-    ("SOIL METER rA", 12.5, 15.8, 0, "B"),
+    ("UPDI", 23.4, 15.6, 0, "B"),
+    ("SOIL METER rB", 15.3, 15.8, 0, "B"),
 ]
 
 
@@ -102,7 +103,7 @@ def zone(b, net, layer, prio):
     z.SetLayer(layer); z.SetNet(net); z.SetAssignedPriority(prio)
     z.SetLocalClearance(MM(0.25)); z.SetMinThickness(MM(0.2))
     z.SetThermalReliefGap(MM(0.3)); z.SetThermalReliefSpokeWidth(MM(0.3))
-    z.SetPadConnection(pcbnew.ZONE_CONNECTION_THERMAL)
+    z.SetPadConnection(pcbnew.ZONE_CONNECTION_FULL)   # SMD pads solid; TH connectors get thermals (below)
     ol = z.Outline(); ol.NewOutline()
     i, c = 0.4, 1.2   # inset from edge, chamfer to clear the rounded corners
     for x, y in [(c, i), (W - c, i), (W - i, c), (W - i, H - c), (W - c, H - i), (c, H - i), (i, H - c), (i, c)]:
@@ -136,6 +137,8 @@ def build():
         fp.SetFPIDAsString(c["footprint"])
         fp.SetPath(pcbnew.KIID_PATH("/" + c["uuid"]))
         fp.SetDNP(c["dnp"])
+        if ref in ("J2", "J5"):
+            fp.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_THERMAL)
         for k, v in c["fields"].items():
             if k not in ("Footprint", "Description"):
                 fp.SetField(k, v)
@@ -182,6 +185,15 @@ def route(b):
     print("\n".join(tail))
     assert os.path.exists(ses), "Freerouting produced no SES"
     assert pcbnew.ImportSpecctraSES(b, ses), "SES import failed"
+    # drop vias the router left connected on only one layer (GND vias are kept: they stitch the pours)
+    tracks = [t for t in b.GetTracks() if t.GetClass() == "PCB_TRACK"]
+    for v in [t for t in b.GetTracks() if t.GetClass() == "PCB_VIA"]:
+        if v.GetNetname() == "/GND":
+            continue
+        layers = {t.GetLayer() for t in tracks if t.GetNetCode() == v.GetNetCode()
+                  and v.GetPosition() in (t.GetStart(), t.GetEnd())}
+        if len(layers) < 2:
+            b.Remove(v)
 
 
 def main():

@@ -4,7 +4,7 @@
 "C3","1nF","Capacitor_SMD:C_0603_1608Metric","CL10B102KB8NNNC","Samsung","1",""
 "C4","22uF 6.3V X5R","Capacitor_SMD:C_0805_2012Metric","CL21A226MQQNNNE","Samsung","1",""
 "J1","UPDI","Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left","","","1","DNP"
-"J2","OLED SSD1306 0.96in","Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal","SM04B-SRSS-TB(LF)(SN)","JST","1",""
+"J2","OLED SSD1306 0.96in","Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical","Supplied Dupont wires soldered to pads (opt. 1x04 2.54mm header)","-","1",""
 "J3","STEMMA QT soil sensor","Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal","SM04B-SRSS-TB(LF)(SN)","JST","1",""
 "J5","BATTERY 2xAAA","Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical","B2B-PH-K-S(LF)(SN)","JST","1",""
 "Q1","DMG3415U","Package_TO_SOT_SMD:SOT-23","DMG3415U-7","Diodes Inc","1",""
