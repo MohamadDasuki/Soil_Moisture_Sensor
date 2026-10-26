@@ -13,38 +13,44 @@ FPLIB = r"C:\Program Files\KiCad\10.0\share\kicad\footprints"
 KCLI = r"C:\Program Files\KiCad\10.0\bin\kicad-cli.exe"
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-W, H = 27.8, 17.0          # board size (mm)
+W, H = 24.0, 19.0          # board size (mm)
 OX, OY = 100.0, 100.0      # board origin on the page
 R_CORNER = 1.0
+P254 = 2.54
+YB = H - 1.8               # bottom-edge pad row
 
 # ref: (x, y, rot_deg, side)   coordinates relative to board top-left
+# 2.54 mm TH pad rows at rot 90 run left->right from pin 1
 PLACE = {
-    "J2": (1.8, 1.6, 90, "F"),        # OLED 2.54mm pads, pin1 left: GND VCC SCL SDA
-    "J3": (W - 4.2, 3.4, 180, "F"),   # soil sensor (cable exits top edge)
-    "U2": (15.3, 2.2, 0, "F"),
-    "C6": (12.2, 2.2, 90, "F"),
-    "C4": (18.4, 2.2, 90, "F"),
-    "C5": (12.2, 5.6, 90, "F"),
-    "C3": (17.0, 5.6, 90, "F"),
-    "C2": (14.6, 5.6, 90, "F"),
-    "J5": (2.8, 9.6, 0, "F"),         # battery JST-PH, vertical
-    "Q1": (2.3, 15.0, 0, "F"),
-    "C1": (5.8, 15.0, 90, "F"),
-    "U1": (14.4, 12.2, 0, "F"),
-    "R1": (19.8, 9.0, 90, "F"),
-    "R2": (21.6, 9.0, 90, "F"),
-    "R3": (23.4, 9.0, 90, "F"),
-    "SW1": (23.4, 14.6, 0, "F"),
-    "J1": (23.4, 9.5, 0, "B"),        # UPDI pads on bottom
+    "J2": (1.8, 1.6, 90, "F"),        # OLED pads: GND VCC SCL SDA (top edge)
+    "J3": (13.0, 1.6, 90, "F"),       # soil sensor pads: GND VCC AOUT (top edge)
+    "J1": (2.0, YB, 90, "F"),         # UPDI pads: UPDI GND VBAT (bottom edge)
+    "SW1": (W - 2.0 - P254, YB, 90, "F"),  # panel button leads (bottom edge)
+    "J5": (2.6, 8.0, 0, "F"),         # battery JST-PH, vertical
+    "Q1": (2.5, 13.4, 0, "F"),
+    "C1": (6.0, 13.4, 90, "F"),
+    "C2": (8.4, 6.0, 90, "F"),
+    "U1": (13.5, 9.6, 0, "F"),
+    "U2": (20.5, 6.0, 0, "F"),
+    "C6": (18.6, 9.4, 90, "F"),
+    "C4": (20.6, 9.4, 90, "F"),
+    "C5": (22.6, 9.4, 90, "F"),
+    "C3": (18.4, 13.0, 90, "F"),
+    "R3": (19.95, 13.0, 90, "F"),
+    "R1": (21.5, 13.0, 90, "F"),
+    "R2": (23.05, 13.0, 90, "F"),
 }
 
 SILK = [  # (text, x, y, rot, side)
-    ("OLED", 5.6, 4.6, 0, "B"),
     ("G", 1.8, 3.9, 0, "F"), ("V", 4.34, 3.9, 0, "F"), ("C", 6.88, 3.9, 0, "F"), ("D", 9.42, 3.9, 0, "F"),
-    ("SENSOR", W - 4.2, 0.9, 0, "B"),
-    ("BATT", 3.8, 12.6, 0, "B"),
-    ("UPDI", 23.4, 15.6, 0, "B"),
-    ("SOIL METER rB", 15.3, 15.8, 0, "B"),
+    ("G", 13.0, 3.9, 0, "F"), ("V", 15.54, 3.9, 0, "F"), ("A", 18.08, 3.9, 0, "F"),
+    ("OLED", 5.6, 3.9, 0, "B"),
+    ("SENSOR", 15.54, 3.9, 0, "B"),
+    ("U", 2.0, YB - 2.3, 0, "B"), ("G", 4.54, YB - 2.3, 0, "B"), ("V", 7.08, YB - 2.3, 0, "B"),
+    ("UPDI", 4.54, YB - 3.6, 0, "B"),
+    ("BTN", W - 2.0 - P254 / 2, YB - 2.3, 0, "B"),
+    ("BATT +", 3.6, 10.6, 0, "B"),
+    ("SOIL METER rC", 13.5, 15.0, 0, "B"),
 ]
 
 
@@ -137,7 +143,7 @@ def build():
         fp.SetFPIDAsString(c["footprint"])
         fp.SetPath(pcbnew.KIID_PATH("/" + c["uuid"]))
         fp.SetDNP(c["dnp"])
-        if ref in ("J2", "J5"):
+        if ref in ("J1", "J2", "J3", "J5", "SW1"):
             fp.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_THERMAL)
         for k, v in c["fields"].items():
             if k not in ("Footprint", "Description"):

@@ -17,9 +17,9 @@ FP_C6 = "Capacitor_SMD:C_0603_1608Metric"
 FP_C8 = "Capacitor_SMD:C_0805_2012Metric"
 parts = [
     # --- Power input ---
-    ("J5", "Connector_Generic", "Conn_01x02", "BATTERY 2xAAA", "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+    ("J5", "Connector_Generic", "Conn_01x02", "BATTERY 3xAAA", "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
      40, 60, {"1": "BAT_RAW", "2": "GND"},
-     {"MPN": "B2B-PH-K-S(LF)(SN)", "Manufacturer": "JST", "Note": "2xAAA holder with JST-PH leads, in case (pin1 = +)"}, False),
+     {"MPN": "B2B-PH-K-S(LF)(SN)", "Manufacturer": "JST", "Note": "3xAAA holder (3.0-4.8V) with JST-PH leads, in case (pin1 = +)"}, False),
     ("Q1", "Transistor_FET", "Q_PMOS_GSD", "DMG3415U", "Package_TO_SOT_SMD:SOT-23",
      80, 60, {"1": "GND", "2": "VBAT", "3": "BAT_RAW"},
      {"MPN": "DMG3415U-7", "Manufacturer": "Diodes Inc", "Note": "Reverse-polarity protection"}, False),
@@ -31,15 +31,16 @@ parts = [
     ("#FLG02", "power", "PWR_FLAG", "PWR_FLAG", "", 180, 52, {"1": "GND"}, {}, False),
     # --- MCU ---
     ("U1", "MCU_Microchip_ATtiny", "ATtiny1614-SS", "ATtiny1614-SSNR", None, 200, 130,
-     {"1": "VBAT", "14": "GND", "10": "UPDI", "2": "LOAD_EN", "3": None, "4": "BTN",
+     {"1": "VBAT", "14": "GND", "10": "UPDI", "2": "LOAD_EN", "3": "AOUT", "4": "BTN",
       "9": "SCL", "8": "SDA",
       "11": None, "12": None, "13": None, "5": None, "6": None, "7": None},
      {"MPN": "ATTINY1614-SSNR", "Manufacturer": "Microchip"}, False),
-    ("J1", "Connector_Generic", "Conn_01x03", "UPDI", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left",
+    ("J1", "Connector_Generic", "Conn_01x03", "UPDI", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
      150, 175, {"1": "UPDI", "2": "GND", "3": "VBAT"},
-     {"Note": "UPDI programming pads on PCB bottom (pogo / temporary header)"}, True),
-    ("SW1", "Switch", "SW_Push", "READ",     "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2",
-         260, 175, {"1": "BTN", "2": "GND"}, {"MPN": "KMR221GLFS", "Manufacturer": "C&K"}, False),
+     {"Note": "UPDI through-hole pads on board edge; plug Dupont wires / temporary header (3.3V SerialUPDI)"}, True),
+    ("SW1", "Connector_Generic", "Conn_01x02", "READ BUTTON", "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
+         260, 175, {"1": "BTN", "2": "GND"},
+         {"MPN": "PBS-110-XBK", "Manufacturer": "Twidec", "Note": "7mm panel-mount momentary NO pushbutton, leads soldered to pads"}, False),
     # --- Switched peripheral rail ---
     ("U2", "Power_Management", "TPS22917DBV", "TPS22917DBVR", None, 70, 140,
      {"1": "VBAT", "2": "GND", "3": "LOAD_EN", "4": "CT", "5": "QOD", "6": "VSW"},
@@ -48,8 +49,8 @@ parts = [
      {"MPN": "RC0603JR-070RL", "Manufacturer": "Yageo", "Note": "Quick output discharge (QOD->VOUT)"}, False),
     ("C3", "Device", "C", "1nF", FP_C6, 40, 165, {"1": "CT", "2": "GND"},
      {"MPN": "CL10B102KB8NNNC", "Manufacturer": "Samsung", "Note": "Load switch slew-rate"}, False),
-    ("C4", "Device", "C", "22uF 6.3V X5R", FP_C8, 105, 140, {"1": "VSW", "2": "GND"},
-     {"MPN": "CL21A226MQQNNNE", "Manufacturer": "Samsung"}, False),
+    ("C4", "Device", "C", "22uF 10V X5R", FP_C8, 105, 140, {"1": "VSW", "2": "GND"},
+     {"MPN": "CL21A226MPQNNNE", "Manufacturer": "Samsung"}, False),
     ("C5", "Device", "C", "100nF", FP_C6, 130, 140, {"1": "VSW", "2": "GND"},
      {"MPN": "CL10B104KB8NNNC", "Manufacturer": "Samsung"}, False),
     ("C6", "Device", "C", "100nF", FP_C6, 150, 140, {"1": "VBAT", "2": "GND"},
@@ -63,19 +64,19 @@ parts = [
     ("J2", "Connector_Generic", "Conn_01x04",     "OLED SSD1306 0.96in", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
          330, 70, {"1": "GND", "2": "VSW", "3": "SCL", "4": "SDA"},
          {"MPN": "Supplied Dupont wires soldered to pads (opt. 1x04 2.54mm header)", "Manufacturer": "-", "Note": "ELEGOO 0.96in SSD1306 module, pin order GND-VCC-SCL-SDA"}, False),
-    ("J3", "Connector_Generic", "Conn_01x04", "STEMMA QT soil sensor", "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
-     330, 110, {"1": "GND", "2": "VSW", "3": "SDA", "4": "SCL"},
-     {"MPN": "SM04B-SRSS-TB(LF)(SN)", "Manufacturer": "JST", "Note": "Adafruit 4026 capacitive soil sensor (I2C 0x36)"}, False),
+    ("J3", "Connector_Generic", "Conn_01x03", "SOIL SENSOR v1.2", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+     330, 110, {"1": "GND", "2": "VSW", "3": "AOUT"},
+     {"MPN": "Supplied PH2.0-3P to Dupont cable soldered to pads", "Manufacturer": "DIYmall", "Note": "Capacitive soil sensor v1.2, analog 0-3V, GND-VCC-AOUT; bypass its 662K LDO"}, False),
 ]
 
 notes = [
-    (30, 25, "Button-activated Soil Moisture Meter  -  2xAAA (2.0-3.2V), no regulator\n"
+    (30, 25, "Button-activated Soil Moisture Meter  -  3xAAA (3.0-4.8V), no regulator\n"
              "Idle: MCU in power-down, TPS22917 off -> ~0.5 uA total.  Press SW1 -> PA6 wakes MCU ->\n"
-             "LOAD_EN high -> VSW powers OLED + sensor -> read, display 15 s -> LOAD_EN low -> sleep."),
-    (30, 200, "Firmware notes: run at 5 MHz (valid down to 1.8 V). Before LOAD_EN low, disable TWI and set\n"
+             "LOAD_EN high -> VSW powers OLED + sensor -> ADC reads AOUT (PA5) -> display 15 s -> LOAD_EN low -> sleep."),
+    (30, 200, "Firmware notes: run at 10 MHz (valid >2.7 V). Before LOAD_EN low, disable TWI and set\n"
               "PB0/PB1 to input w/o pull-up so the unpowered OLED/sensor aren't back-fed.\n"
-              "Battery voltage measured internally (ADC: VDD vs. internal reference) - no divider needed.\n"
-              "OLED module: bridge its onboard 662K LDO (VIN->3V3) so it runs to ~2.2 V. Low-batt cutoff ~2.2 V."),
+              "Sensor read ratiometric (ADC ref = VDD, sensor LDO bypassed). Battery: VDD vs. internal reference.\n"
+              "OLED module runs from VSW via its own LDO (3.3-5V). Low-batt cutoff ~3.3 V (1.1 V/cell)."),
 ]
 
 libcache, used = {}, {}

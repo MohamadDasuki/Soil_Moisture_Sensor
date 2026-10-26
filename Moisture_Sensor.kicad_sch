@@ -1305,172 +1305,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Switch:SW_Push"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "SW"
-				(at 1.27 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "SW_Push"
-				(at 0 -1.524 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Push button switch, generic, two pins"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "switch normally-open pushbutton push-button"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "SW_Push_0_1"
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.27)
-						(xy 0 3.048)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 1.27)
-						(xy -2.54 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Power_Management:TPS22917DBV"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2051,7 +1885,7 @@
 				)
 			)
 		)
-		(property "Value" "BATTERY 2xAAA"
+		(property "Value" "BATTERY 3xAAA"
 			(at 40.64 64.77 0)
 			(effects
 				(font
@@ -2095,7 +1929,7 @@
 				)
 			)
 		)
-		(property "Note" "2xAAA holder with JST-PH leads, in case (pin1 = +)"
+		(property "Note" "3xAAA holder (3.0-4.8V) with JST-PH leads, in case (pin1 = +)"
 			(at 39.37 59.69 0)
 			(hide yes)
 			(effects
@@ -2743,8 +2577,14 @@
 		)
 		(uuid "856ec535-a4dc-5038-be08-2c05d7b94fae")
 	)
-	(no_connect
-		(at 214.63 132.08)
+	(label "AOUT"
+		(at 214.63 132.08 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
 		(uuid "560d3377-6072-5776-b7a5-a66fdb088d05")
 	)
 	(label "BTN"
@@ -2826,7 +2666,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 149.86 175.26 0)
 			(hide yes)
 			(effects
@@ -2844,7 +2684,7 @@
 				)
 			)
 		)
-		(property "Note" "UPDI programming pads on PCB bottom (pogo / temporary header)"
+		(property "Note" "UPDI through-hole pads on board edge; plug Dupont wires / temporary header (3.3V SerialUPDI)"
 			(at 149.86 175.26 0)
 			(hide yes)
 			(effects
@@ -2902,7 +2742,7 @@
 		(uuid "3af80a9d-8c82-550d-ad3e-92b245928af3")
 	)
 	(symbol
-		(lib_id "Switch:SW_Push")
+		(lib_id "Connector_Generic:Conn_01x02")
 		(at 260.35 175.26 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2918,15 +2758,15 @@
 				)
 			)
 		)
-		(property "Value" "READ"
-			(at 260.35 177.8 0)
+		(property "Value" "READ BUTTON"
+			(at 260.35 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 			(at 260.35 175.26 0)
 			(hide yes)
 			(effects
@@ -2944,7 +2784,7 @@
 				)
 			)
 		)
-		(property "MPN" "KMR221GLFS"
+		(property "MPN" "PBS-110-XBK"
 			(at 260.35 175.26 0)
 			(hide yes)
 			(effects
@@ -2953,7 +2793,16 @@
 				)
 			)
 		)
-		(property "Manufacturer" "C&K"
+		(property "Manufacturer" "Twidec"
+			(at 260.35 175.26 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Note" "7mm panel-mount momentary NO pushbutton, leads soldered to pads"
 			(at 260.35 175.26 0)
 			(hide yes)
 			(effects
@@ -2988,12 +2837,12 @@
 		(uuid "efb9c5de-26ce-5752-87bb-e6d2c7db8a6a")
 	)
 	(label "GND"
-		(at 265.43 175.26 0)
+		(at 255.27 177.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "1971548b-a70b-5ebd-a1b0-97eee50f5c54")
 	)
@@ -3377,7 +3226,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22uF 6.3V X5R"
+		(property "Value" "22uF 10V X5R"
 			(at 107.95 140.97 0)
 			(effects
 				(font
@@ -3404,7 +3253,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL21A226MQQNNNE"
+		(property "MPN" "CL21A226MPQNNNE"
 			(at 105.41 139.7 0)
 			(hide yes)
 			(effects
@@ -3981,7 +3830,7 @@
 		(uuid "d5480660-13bd-5ef8-9765-5400915b7c10")
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x04")
+		(lib_id "Connector_Generic:Conn_01x03")
 		(at 330.2 110.49 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3997,15 +3846,15 @@
 				)
 			)
 		)
-		(property "Value" "STEMMA QT soil sensor"
-			(at 331.47 118.11 0)
+		(property "Value" "SOIL SENSOR v1.2"
+			(at 331.47 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 330.2 110.49 0)
 			(hide yes)
 			(effects
@@ -4023,7 +3872,7 @@
 				)
 			)
 		)
-		(property "MPN" "SM04B-SRSS-TB(LF)(SN)"
+		(property "MPN" "Supplied PH2.0-3P to Dupont cable soldered to pads"
 			(at 330.2 110.49 0)
 			(hide yes)
 			(effects
@@ -4032,7 +3881,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "JST"
+		(property "Manufacturer" "DIYmall"
 			(at 330.2 110.49 0)
 			(hide yes)
 			(effects
@@ -4041,7 +3890,7 @@
 				)
 			)
 		)
-		(property "Note" "Adafruit 4026 capacitive soil sensor (I2C 0x36)"
+		(property "Note" "Capacitive soil sensor v1.2, analog 0-3V, GND-VCC-AOUT; bypass its 662K LDO"
 			(at 330.2 110.49 0)
 			(hide yes)
 			(effects
@@ -4058,9 +3907,6 @@
 		)
 		(pin "3"
 			(uuid "910ee14d-7ac2-5397-b053-5d63e702f061")
-		)
-		(pin "4"
-			(uuid "ac378789-aa3e-5fdc-8c10-952ac654a12b")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -4079,7 +3925,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "9c465deb-81b3-50a0-830d-73bb7cac1c32")
+		(uuid "ac378789-aa3e-5fdc-8c10-952ac654a12b")
 	)
 	(label "VSW"
 		(at 325.12 110.49 180)
@@ -4089,9 +3935,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b96fd769-6246-53bf-b953-10883f6bafc5")
+		(uuid "9c465deb-81b3-50a0-830d-73bb7cac1c32")
 	)
-	(label "SDA"
+	(label "AOUT"
 		(at 325.12 113.03 180)
 		(effects
 			(font
@@ -4099,19 +3945,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "38a5d95e-5336-58d0-abec-5ee82439cec1")
+		(uuid "b96fd769-6246-53bf-b953-10883f6bafc5")
 	)
-	(label "SCL"
-		(at 325.12 115.57 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "cac2473c-01cf-5847-8a7c-4a63bbed6c72")
-	)
-	(text "Button-activated Soil Moisture Meter  -  2xAAA (2.0-3.2V), no regulator\nIdle: MCU in power-down, TPS22917 off -> ~0.5 uA total.  Press SW1 -> PA6 wakes MCU ->\nLOAD_EN high -> VSW powers OLED + sensor -> read, display 15 s -> LOAD_EN low -> sleep."
+	(text "Button-activated Soil Moisture Meter  -  3xAAA (3.0-4.8V), no regulator\nIdle: MCU in power-down, TPS22917 off -> ~0.5 uA total.  Press SW1 -> PA6 wakes MCU ->\nLOAD_EN high -> VSW powers OLED + sensor -> ADC reads AOUT (PA5) -> display 15 s -> LOAD_EN low -> sleep."
 		(exclude_from_sim no)
 		(at 30 25 0)
 		(effects
@@ -4120,9 +3956,9 @@
 			)
 			(justify left top)
 		)
-		(uuid "98501f65-ac87-52be-92f6-26676d081a6b")
+		(uuid "38a5d95e-5336-58d0-abec-5ee82439cec1")
 	)
-	(text "Firmware notes: run at 5 MHz (valid down to 1.8 V). Before LOAD_EN low, disable TWI and set\nPB0/PB1 to input w/o pull-up so the unpowered OLED/sensor aren't back-fed.\nBattery voltage measured internally (ADC: VDD vs. internal reference) - no divider needed.\nOLED module: bridge its onboard 662K LDO (VIN->3V3) so it runs to ~2.2 V. Low-batt cutoff ~2.2 V."
+	(text "Firmware notes: run at 10 MHz (valid >2.7 V). Before LOAD_EN low, disable TWI and set\nPB0/PB1 to input w/o pull-up so the unpowered OLED/sensor aren't back-fed.\nSensor read ratiometric (ADC ref = VDD, sensor LDO bypassed). Battery: VDD vs. internal reference.\nOLED module runs from VSW via its own LDO (3.3-5V). Low-batt cutoff ~3.3 V (1.1 V/cell)."
 		(exclude_from_sim no)
 		(at 30 200 0)
 		(effects
@@ -4131,7 +3967,7 @@
 			)
 			(justify left top)
 		)
-		(uuid "6ddd440a-aaca-5461-bcce-e0f248d88657")
+		(uuid "cac2473c-01cf-5847-8a7c-4a63bbed6c72")
 	)
 	(sheet_instances
 		(path "/"
