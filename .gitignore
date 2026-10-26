@@ -1,0 +1,11 @@
+# KiCad temp/backup files
+*.lck
+~*.lck
+*-backups/
+*.bak
+*.kicad_prl
+fp-info-cache
+_autosave-*
+*.tmp
+__pycache__/
+.history/
