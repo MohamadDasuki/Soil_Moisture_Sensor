@@ -11,12 +11,9 @@
 		(comment 1 "2xAAA, ATtiny1614, TPS22917 load switch, SSD1306 OLED, STEMMA soil sensor")
 	)
 	(lib_symbols
-		(symbol "Device:Battery"
-			(pin_numbers
-				(hide yes)
-			)
+		(symbol "Connector_Generic:Conn_01x02"
 			(pin_names
-				(offset 0)
+				(offset 1.016)
 				(hide yes)
 			)
 			(exclude_from_sim no)
@@ -24,30 +21,28 @@
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "BT"
-				(at 2.54 2.54 0)
+			(property "Reference" "J"
+				(at 0 2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Value" "Battery"
-				(at 2.54 0 0)
+			(property "Value" "Conn_01x02"
+				(at 0 -5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Footprint" ""
-				(at 0 1.524 90)
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -58,17 +53,6 @@
 				)
 			)
 			(property "Datasheet" ""
-				(at 0 1.524 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Multiple-cell battery"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -79,7 +63,7 @@
 					)
 				)
 			)
-			(property "Sim.Device" "V"
+			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -90,7 +74,7 @@
 					)
 				)
 			)
-			(property "Sim.Type" "DC"
+			(property "ki_keywords" "connector"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -101,7 +85,7 @@
 					)
 				)
 			)
-			(property "Sim.Pins" "1=+ 2=-"
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -112,146 +96,44 @@
 					)
 				)
 			)
-			(property "ki_keywords" "batt voltage-source cell"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "Battery_0_1"
+			(symbol "Conn_01x02_1_1"
 				(rectangle
-					(start -2.286 1.778)
-					(end 2.286 1.524)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start -2.286 -1.27)
-					(end 2.286 -1.524)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start -1.524 1.016)
-					(end 1.524 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start -1.524 -2.032)
-					(end 1.524 -2.54)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.778)
-						(xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0)
-						(xy 0 0.254)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -0.508)
-						(xy 0 -0.254)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -1.016)
-						(xy 0 -0.762)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 3.048)
-						(xy 1.778 3.048)
-					)
+					(start -1.27 1.27)
+					(end 1.27 -3.81)
 					(stroke
 						(width 0.254)
 						(type default)
 					)
 					(fill
-						(type none)
+						(type background)
 					)
 				)
-				(polyline
-					(pts
-						(xy 1.27 3.556)
-						(xy 1.27 2.54)
-					)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
 					(stroke
-						(width 0.254)
+						(width 0.1524)
 						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-			)
-			(symbol "Battery_1_1"
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "+"
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -267,9 +149,9 @@
 					)
 				)
 				(pin passive line
-					(at 0 -5.08 90)
-					(length 2.54)
-					(name "-"
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2153,33 +2035,31 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:Battery")
+		(lib_id "Connector_Generic:Conn_01x02")
 		(at 39.37 59.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3f6a6ec6-1ea9-4eb9-9b0c-156dd9ca5326")
-		(property "Reference" "BT1"
-			(at 41.91 58.42 0)
+		(uuid "131d63ba-93b9-5df2-a713-b3703b6eed33")
+		(property "Reference" "J5"
+			(at 40.64 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "2xAAA"
-			(at 41.91 60.96 0)
+		(property "Value" "BATTERY 2xAAA"
+			(at 40.64 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "Battery:BatteryHolder_Keystone_2468_2xAAA"
+		(property "Footprint" "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical"
 			(at 39.37 59.69 0)
 			(hide yes)
 			(effects
@@ -2197,7 +2077,7 @@
 				)
 			)
 		)
-		(property "MPN" "2468"
+		(property "MPN" "B2B-PH-K-S(LF)(SN)"
 			(at 39.37 59.69 0)
 			(hide yes)
 			(effects
@@ -2206,7 +2086,16 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Keystone"
+		(property "Manufacturer" "JST"
+			(at 39.37 59.69 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Note" "2xAAA holder with JST-PH leads, in case (pin1 = +)"
 			(at 39.37 59.69 0)
 			(hide yes)
 			(effects
@@ -2216,39 +2105,39 @@
 			)
 		)
 		(pin "1"
-			(uuid "74d19e48-a82c-4dda-b83e-c2c95edaeba7")
+			(uuid "9971d887-ebce-5e58-bc37-8356529cfeb8")
 		)
 		(pin "2"
-			(uuid "deb6cf0d-17d2-4ef2-83c0-27b4c8ae4a02")
+			(uuid "63cf1dd8-2239-5d91-ba34-f9836bcea962")
 		)
 		(instances
 			(project "Moisture_Sensor"
 				(path "/0e800fc4-907d-5dc6-8843-971325c920e2"
-					(reference "BT1")
+					(reference "J5")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(label "BAT_RAW"
-		(at 39.37 54.61 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e804d51d-be92-4fa6-92c7-05bf079282f0")
-	)
-	(label "GND"
-		(at 39.37 64.77 270)
+		(at 34.29 59.69 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "3c65ff9f-5470-4754-b5e7-4d6c14cddfc3")
+		(uuid "60f77cf1-39c7-57ab-888e-2f1066038d8e")
+	)
+	(label "GND"
+		(at 34.29 62.23 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9b4e9873-f486-5b2c-9db0-b495a36d39f6")
 	)
 	(symbol
 		(lib_id "Transistor_FET:Q_PMOS_GSD")
@@ -2258,7 +2147,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "da691ced-82a3-4510-8282-da0f03e11847")
+		(uuid "00630f15-3728-5e8f-bfa0-a9a3cd455068")
 		(property "Reference" "Q1"
 			(at 86.36 58.42 0)
 			(effects
@@ -2323,13 +2212,13 @@
 			)
 		)
 		(pin "1"
-			(uuid "a21c1440-d4e6-4069-ac1b-c1864ed13811")
+			(uuid "c688a11f-3817-59b0-97f6-2441e42d3154")
 		)
 		(pin "2"
-			(uuid "f1ce9c2d-25bd-417e-89ca-103d1f5eae04")
+			(uuid "10211633-041b-5f69-9967-f3c298e6ff1f")
 		)
 		(pin "3"
-			(uuid "be193a30-fe95-4c7d-a4cf-05b9cf6d24b2")
+			(uuid "8c6c148f-523f-595f-84f5-15b866840628")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -2348,7 +2237,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "29dd2a2b-d27a-420d-b532-497aa9d3d365")
+		(uuid "ea753ddb-d12c-5df9-a412-7ddbdad42967")
 	)
 	(label "VBAT"
 		(at 82.55 64.77 270)
@@ -2358,7 +2247,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "21a4928f-ddb7-4ea4-a9e2-ee2dd3cf9bc2")
+		(uuid "ba270efb-d69c-5546-91ae-1b50e7123315")
 	)
 	(label "BAT_RAW"
 		(at 82.55 54.61 90)
@@ -2368,7 +2257,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c6c9340c-f773-41db-b736-38d1588d24e6")
+		(uuid "4b315162-ac6c-5153-a9ea-b9f16fe2478a")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -2378,7 +2267,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ff112c8a-423f-424c-9567-3996114d6f08")
+		(uuid "d2c77db0-5d90-5cdb-859f-69964d314151")
 		(property "Reference" "C1"
 			(at 107.95 58.42 0)
 			(effects
@@ -2434,10 +2323,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "c91a4692-4c34-41be-9af7-b6e8d4f9ab64")
+			(uuid "b7534db0-c131-5d43-a04a-3cc4329f5169")
 		)
 		(pin "2"
-			(uuid "89d21e2d-18a7-42ca-8094-53b1a66a2419")
+			(uuid "45658e16-2d67-55b7-bb9a-f4c65f76be6b")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -2456,7 +2345,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "427ef8d9-6daf-481a-b5a4-d22a747f02aa")
+		(uuid "75e718ef-f35a-5f3d-9425-794af55c1912")
 	)
 	(label "GND"
 		(at 105.41 63.5 270)
@@ -2466,7 +2355,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "033fdcb7-4ba2-47c9-b251-2d994f742135")
+		(uuid "922f62b5-c7e9-5240-9ef9-1fb9106c9bca")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -2476,7 +2365,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a96d2981-7584-4df4-a586-76b51ddd87c6")
+		(uuid "206ee1e7-a6c2-5c0e-b50c-47b31a15a279")
 		(property "Reference" "C2"
 			(at 132.08 58.42 0)
 			(effects
@@ -2532,10 +2421,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "84ea919a-a80e-403f-87d4-25925d251808")
+			(uuid "e2c87f53-56ab-5b2d-ace5-63d8a5f31abc")
 		)
 		(pin "2"
-			(uuid "05bbc26a-f59f-4553-898f-b4e34132504f")
+			(uuid "bda95aa6-c8ca-5763-a760-09b425054270")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -2554,7 +2443,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b93f8ac5-95f4-4cea-a5f9-44bebb7da7c7")
+		(uuid "d6b92ae5-2a7a-5386-a557-5efebbb63762")
 	)
 	(label "GND"
 		(at 129.54 63.5 270)
@@ -2564,7 +2453,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ebf4c2c5-5b95-4ff2-ad22-fc6f95a0421f")
+		(uuid "3b5cd8bb-6be0-59f2-9f05-f98c7cf6ca25")
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
@@ -2574,7 +2463,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "d691a316-6ccd-4bb1-a291-d96095ccf707")
+		(uuid "ac018db7-607c-5f6f-81e0-c540dd3c61bf")
 		(property "Reference" "#FLG01"
 			(at 157.48 50.8 0)
 			(hide yes)
@@ -2613,7 +2502,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "c0b86823-3eab-4674-aadb-000cbecee97c")
+			(uuid "fe1e7a0c-2d1d-5ea3-8261-1eecaeb28069")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -2632,7 +2521,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "3e3cd8cb-62c8-4fed-991c-fe8d99ffb35a")
+		(uuid "c49bebc1-01c2-5e1c-acf2-65552f9fafbb")
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
@@ -2642,7 +2531,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "12fe91eb-e319-4c71-84cd-2582215be426")
+		(uuid "99df5d80-967d-55ea-a77a-f30557631b22")
 		(property "Reference" "#FLG02"
 			(at 182.88 50.8 0)
 			(hide yes)
@@ -2681,7 +2570,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "be6367ca-c043-4997-a414-330960b247bf")
+			(uuid "857a43ad-70b6-5219-84f4-e7ff3f45852e")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -2700,7 +2589,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d8dbbd29-aacc-4170-b581-ffac51e9b04d")
+		(uuid "04bba236-920e-590f-8e50-ad8e75aed3f1")
 	)
 	(symbol
 		(lib_id "MCU_Microchip_ATtiny:ATtiny1614-SS")
@@ -2710,7 +2599,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ac38b2f8-5ec2-49b4-9555-a26be7278635")
+		(uuid "dddef805-58be-5d77-91bc-b3afb7a91d6e")
 		(property "Reference" "U1"
 			(at 199.39 109.22 0)
 			(effects
@@ -2764,46 +2653,46 @@
 			)
 		)
 		(pin "1"
-			(uuid "83032e03-47cf-4f3d-8cd6-d5da155ba274")
+			(uuid "3a687af3-d12e-51e1-887c-1ab00be0e278")
 		)
 		(pin "2"
-			(uuid "490efb57-6cd2-433e-97f6-d1eaf344b2fd")
+			(uuid "dbfd995c-53a5-5462-8b18-701e4234275e")
 		)
 		(pin "3"
-			(uuid "a52920f8-06f5-4ba6-9f17-95efca66d7b6")
+			(uuid "35c78d45-0690-57f1-b8ca-d1a172c23ae6")
 		)
 		(pin "4"
-			(uuid "c5baf1c0-7b5c-4f2c-bc5c-5450181496e5")
+			(uuid "4cd6d957-997c-5385-96df-272d73b542fb")
 		)
 		(pin "5"
-			(uuid "a50b19ba-14b0-4967-af1d-f7f786849672")
+			(uuid "bd067747-d0fb-5d4a-9eed-aeda9081989b")
 		)
 		(pin "6"
-			(uuid "1454bcb1-3851-48f6-a00a-3067afc47d06")
+			(uuid "e90a55dc-342a-5060-9f44-82c13c273978")
 		)
 		(pin "7"
-			(uuid "e69b2fa3-329d-48d7-a606-109800ed1049")
+			(uuid "b9470a1b-415f-5f98-a677-40d3e266b08a")
 		)
 		(pin "8"
-			(uuid "3b4859bd-b5fc-453b-881b-6ed72048930d")
+			(uuid "96f7b1a0-4209-52f9-b269-1fd626ea9c16")
 		)
 		(pin "9"
-			(uuid "a08e38c3-b030-4bda-ab51-863aacbd3eef")
+			(uuid "984c61a2-ba34-522d-a4e7-a76fe37c5adf")
 		)
 		(pin "10"
-			(uuid "5b7c8a43-840a-43b3-9755-666f2a4dcda8")
+			(uuid "5bf46b22-6808-5ba5-8005-92bc812d17f9")
 		)
 		(pin "11"
-			(uuid "520afe2a-6e12-4f11-bd4a-25ea1a90aca6")
+			(uuid "1911804b-343f-5cf5-9dd2-da1c6433fdf3")
 		)
 		(pin "12"
-			(uuid "c5c7b1f2-0a6b-4429-898d-4eec6b2a395c")
+			(uuid "9d5fd3f2-4b9a-535f-bc0d-544bf1f51a96")
 		)
 		(pin "13"
-			(uuid "f56d4d24-f002-4f1c-80a8-bbf1e7f66478")
+			(uuid "0834f391-795a-511f-b3cc-43924d1b1674")
 		)
 		(pin "14"
-			(uuid "291e000d-dd1d-48ec-8190-8ded6f51ac5a")
+			(uuid "21d7a26c-22c6-5938-8fba-e5b66898044c")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -2822,7 +2711,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ee150c56-6b5f-43f8-aec1-efcd1384e8da")
+		(uuid "33f5c996-fdb2-5cba-8d6c-aeb67fdd5e63")
 	)
 	(label "GND"
 		(at 199.39 147.32 270)
@@ -2832,7 +2721,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e20d83ee-ea6b-4685-9917-84ca92b4a06b")
+		(uuid "7b73208a-1a5d-5206-beed-175c6121c9ad")
 	)
 	(label "UPDI"
 		(at 214.63 119.38 0)
@@ -2842,7 +2731,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "67f58a5c-4d42-498f-b147-cac36593d517")
+		(uuid "6c697e51-8b31-51f9-8ca2-8de871bd6d00")
 	)
 	(label "LOAD_EN"
 		(at 214.63 129.54 0)
@@ -2852,17 +2741,11 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "95e76370-bf48-4c3e-ac95-795b9ebe16c6")
+		(uuid "856ec535-a4dc-5038-be08-2c05d7b94fae")
 	)
-	(label "SENS_A"
-		(at 214.63 132.08 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9e0f80b7-94de-4684-8f7a-fa51652c6cab")
+	(no_connect
+		(at 214.63 132.08)
+		(uuid "560d3377-6072-5776-b7a5-a66fdb088d05")
 	)
 	(label "BTN"
 		(at 214.63 134.62 0)
@@ -2872,7 +2755,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ba3fac67-bca0-4a9d-8333-fa85c2145493")
+		(uuid "25afae42-a1d8-5908-8f7f-cf7355d521ec")
 	)
 	(label "SCL"
 		(at 184.15 119.38 180)
@@ -2882,7 +2765,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "3761f193-79bc-4121-af13-d6d183fd0ac3")
+		(uuid "8435ff99-69a0-5211-b6a4-7bc261a7ac57")
 	)
 	(label "SDA"
 		(at 184.15 121.92 180)
@@ -2892,31 +2775,31 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e8b9053d-ec75-459e-88b9-eb3d23e581c9")
+		(uuid "88308c8e-f223-5a19-aa59-f848847c2f52")
 	)
 	(no_connect
 		(at 214.63 121.92)
-		(uuid "60b3168d-d8cf-4705-a8fc-a200dd0f5d50")
+		(uuid "6630909f-6cdd-56ac-9586-51224ab19f96")
 	)
 	(no_connect
 		(at 214.63 124.46)
-		(uuid "8d6144de-7cb3-40e8-bb9d-3cea70ed7c2b")
+		(uuid "53f0276d-c132-5012-9b12-a1eac7efd12c")
 	)
 	(no_connect
 		(at 214.63 127)
-		(uuid "046fd174-89ef-479b-8494-ca7bc82411f0")
+		(uuid "820f3b98-79ed-5c43-8838-cdba68297d5e")
 	)
 	(no_connect
 		(at 214.63 137.16)
-		(uuid "666c095f-6e1d-4b8d-8d73-c1b62a9e8e44")
+		(uuid "25614b15-b0c3-50ef-81f6-51bedcbf35ba")
 	)
 	(no_connect
 		(at 184.15 127)
-		(uuid "7d01fb9b-d35d-44fb-8242-362fc9ec810c")
+		(uuid "ca2e44ed-92ae-5f2c-a2b9-d480c3c266ff")
 	)
 	(no_connect
 		(at 184.15 124.46)
-		(uuid "eba2cecd-1610-4f3e-815b-af47ee256ea6")
+		(uuid "840c103d-d4b2-50d8-bbd2-15f45eb7f645")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x03")
@@ -2926,7 +2809,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp yes)
-		(uuid "28442d72-bc4e-4cf0-8925-0bd5db9aaefc")
+		(uuid "233aea57-ffa7-5f8c-a039-c3a20a5f8eb7")
 		(property "Reference" "J1"
 			(at 151.13 170.18 0)
 			(effects
@@ -2943,7 +2826,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left"
 			(at 149.86 175.26 0)
 			(hide yes)
 			(effects
@@ -2961,7 +2844,7 @@
 				)
 			)
 		)
-		(property "Note" "Programming header (pogo pads / temporary header)"
+		(property "Note" "UPDI programming pads on PCB bottom (pogo / temporary header)"
 			(at 149.86 175.26 0)
 			(hide yes)
 			(effects
@@ -2971,13 +2854,13 @@
 			)
 		)
 		(pin "1"
-			(uuid "ef1c8b8d-a594-47fb-81dd-abd9e3beee93")
+			(uuid "64278ad7-932e-5cb6-bc89-302fb3959312")
 		)
 		(pin "2"
-			(uuid "e40925b7-f64e-451d-b44d-e0b2b761abc4")
+			(uuid "b28e6d82-4648-5f27-a237-327f722a1f6b")
 		)
 		(pin "3"
-			(uuid "42d7f66f-2b54-4617-aa9b-64947b342eca")
+			(uuid "bef13e31-e28a-5a9f-8181-8ab87f0f031c")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -2996,7 +2879,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "9028c2f7-605b-42b6-ac26-101e5c84af6b")
+		(uuid "2deff0ce-7b10-58c3-a7d2-2f69db03d0a6")
 	)
 	(label "GND"
 		(at 144.78 175.26 180)
@@ -3006,7 +2889,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "6fb5cb68-f1dc-435f-b645-cc409ed9e092")
+		(uuid "ac5775c7-f5af-5dc2-a183-1195c55349ba")
 	)
 	(label "VBAT"
 		(at 144.78 177.8 180)
@@ -3016,7 +2899,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "3e11a221-f0ed-420d-a68c-026a9ca50983")
+		(uuid "3af80a9d-8c82-550d-ad3e-92b245928af3")
 	)
 	(symbol
 		(lib_id "Switch:SW_Push")
@@ -3026,7 +2909,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "e4842eb4-1a4a-4e66-abc6-a5d11d0f72b5")
+		(uuid "76918b21-21f8-58c0-b545-fb6a9486f6ca")
 		(property "Reference" "SW1"
 			(at 260.35 172.72 0)
 			(effects
@@ -3043,7 +2926,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2"
 			(at 260.35 175.26 0)
 			(hide yes)
 			(effects
@@ -3061,7 +2944,7 @@
 				)
 			)
 		)
-		(property "MPN" "B3F-1000"
+		(property "MPN" "KMR221GLFS"
 			(at 260.35 175.26 0)
 			(hide yes)
 			(effects
@@ -3070,7 +2953,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Omron"
+		(property "Manufacturer" "C&K"
 			(at 260.35 175.26 0)
 			(hide yes)
 			(effects
@@ -3080,10 +2963,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "70ae3429-80b5-4fd7-b53a-0d6ff359a60a")
+			(uuid "8c1f5d49-f0f8-5d87-afd8-1d94595da622")
 		)
 		(pin "2"
-			(uuid "5cd4ac52-a9f1-4fab-8faa-042980fcd4ae")
+			(uuid "a3b46dad-6cce-5ea8-a7a4-fdcac01624e5")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -3102,7 +2985,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "81e522d3-81a0-49fb-9aee-85d2d7f327ad")
+		(uuid "efb9c5de-26ce-5752-87bb-e6d2c7db8a6a")
 	)
 	(label "GND"
 		(at 265.43 175.26 0)
@@ -3112,7 +2995,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2e30a071-ebb9-44df-9f58-b2a2f60ddb82")
+		(uuid "1971548b-a70b-5ebd-a1b0-97eee50f5c54")
 	)
 	(symbol
 		(lib_id "Power_Management:TPS22917DBV")
@@ -3122,7 +3005,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "14794306-7d8e-45b7-87ed-015fa6ea7137")
+		(uuid "669c3c40-9e58-599d-ae06-901646c69b16")
 		(property "Reference" "U2"
 			(at 69.85 134.62 0)
 			(effects
@@ -3176,22 +3059,22 @@
 			)
 		)
 		(pin "1"
-			(uuid "d83037a0-c422-4c56-9e13-1649c0d6dc80")
+			(uuid "b74fae86-d85c-592e-a118-f1b362add9a7")
 		)
 		(pin "2"
-			(uuid "8ea36352-9148-46ac-9328-6175d3c34ec7")
+			(uuid "22859726-e074-5745-b678-ad35cb756f69")
 		)
 		(pin "3"
-			(uuid "7fd77914-32c0-42a4-8167-c5ab961c35fd")
+			(uuid "27bf560f-c0f7-56d6-9128-415dbb45b239")
 		)
 		(pin "4"
-			(uuid "04e30fd8-aa29-4da3-8bc2-2f457640c723")
+			(uuid "c7f1aa3c-761c-5c00-aab9-e646c59fb4bd")
 		)
 		(pin "5"
-			(uuid "e298477b-1c0e-41d6-b1b8-98124f0ec5f5")
+			(uuid "08fe1b2c-b610-5582-b68f-4f3f60c9ad7a")
 		)
 		(pin "6"
-			(uuid "fa0817c1-73fa-42c2-82f6-dad465b07511")
+			(uuid "7a451b71-2449-5551-af46-cb2e58dbc785")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -3210,7 +3093,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "4ffc4783-0367-426a-a215-d81e04b66628")
+		(uuid "0cfc45fb-1701-5ad1-b12b-b2f7ac47a070")
 	)
 	(label "GND"
 		(at 69.85 147.32 270)
@@ -3220,7 +3103,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f28576ec-7b1f-4648-9180-c16d8fe39e5f")
+		(uuid "f6fc52e6-08fc-59b6-85bf-4b59960838a1")
 	)
 	(label "LOAD_EN"
 		(at 59.69 142.24 180)
@@ -3230,7 +3113,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "0ccec790-dbe1-4213-80fe-6245cda07707")
+		(uuid "856af68b-8d2a-5778-9a6a-f44cbcc71170")
 	)
 	(label "CT"
 		(at 59.69 139.7 180)
@@ -3240,7 +3123,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7d409b4f-a6d2-4154-863f-e20f3fa5598d")
+		(uuid "41da5dde-cccc-5150-ba4a-91d75df0a658")
 	)
 	(label "QOD"
 		(at 80.01 142.24 0)
@@ -3250,7 +3133,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f1e69b1e-6b23-4c24-a180-cc0cd58989d8")
+		(uuid "8434c61c-3d6a-50d0-aca6-531824eb183c")
 	)
 	(label "VSW"
 		(at 80.01 137.16 0)
@@ -3260,7 +3143,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "4647768a-24ae-4edf-8918-6847813dfb5d")
+		(uuid "f674deba-b4bf-52fc-8664-32ba98ee6955")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3270,7 +3153,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d8e4fdf1-23f5-4f8c-b432-d3f90ea335ef")
+		(uuid "6f6a6844-459f-526c-85a9-53e067310377")
 		(property "Reference" "R3"
 			(at 97.79 158.75 0)
 			(effects
@@ -3335,10 +3218,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "2d57a72c-b65d-427f-bfba-673cf4a88bc0")
+			(uuid "cd0a34b6-1507-5d96-be9e-f7b9dc75ebdd")
 		)
 		(pin "2"
-			(uuid "297cb1d7-5244-4e63-8bee-037f35079e23")
+			(uuid "009de188-519b-5648-949d-f12fe4cc5210")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -3357,7 +3240,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "843f86af-bb41-44d0-8451-3ca0202ed25f")
+		(uuid "61db6042-6252-54c7-a445-bd8ad748ec9b")
 	)
 	(label "VSW"
 		(at 95.25 163.83 270)
@@ -3367,7 +3250,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7fa9f87c-6f2a-44d4-939e-0dff35b9f6c0")
+		(uuid "59a01a1a-4db4-51bb-9af4-c81eabe02344")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -3377,7 +3260,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "57848791-b852-4c71-be26-e1a37803f647")
+		(uuid "9b0ff358-b3ac-5baf-9ded-117da7c167ec")
 		(property "Reference" "C3"
 			(at 41.91 163.83 0)
 			(effects
@@ -3442,10 +3325,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "ed68e602-1ab0-4a8f-95b8-050b037987dd")
+			(uuid "54076553-8b89-5790-901d-3be7b79bb8bf")
 		)
 		(pin "2"
-			(uuid "a7083d86-b82e-4438-ac7d-1b598f259184")
+			(uuid "6eb4e3fd-8968-5b85-892f-f926048f18db")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -3464,7 +3347,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c9506a40-b859-4f10-bb20-349078a566ba")
+		(uuid "00a5df0f-b039-568c-ad7f-110d295079af")
 	)
 	(label "GND"
 		(at 39.37 168.91 270)
@@ -3474,7 +3357,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a3ea7ae9-bf55-4fbe-84da-55540d613e2a")
+		(uuid "4d0ec705-a8da-503e-baba-efa8649b00ec")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -3484,7 +3367,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d6350f53-2eef-45a5-8c80-337eaa7c4c70")
+		(uuid "06c8ce3a-99c3-57bd-a2df-314c743e81f2")
 		(property "Reference" "C4"
 			(at 107.95 138.43 0)
 			(effects
@@ -3540,10 +3423,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "f33fa3a3-df13-48cb-b745-7b1e6c6cd5b9")
+			(uuid "ec10127b-1184-5ef4-b32d-9a9f4af66026")
 		)
 		(pin "2"
-			(uuid "77b17908-fe65-4c9a-9983-fec518af3e6e")
+			(uuid "6c55994b-e186-5499-b989-766c7917fce0")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -3562,7 +3445,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d1ba44b6-92ff-4233-8247-7c2badef697d")
+		(uuid "c5b9ac10-16c5-5d72-b1c5-7ab574010277")
 	)
 	(label "GND"
 		(at 105.41 143.51 270)
@@ -3572,7 +3455,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7bd0b287-53e8-466e-895e-259bcad84018")
+		(uuid "6eb740b2-7aa8-51ab-be79-234eb327a8c8")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -3582,7 +3465,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "77c0b811-485c-4e45-a824-22ff6c7a92fe")
+		(uuid "fe18c677-452b-5be8-a66e-1ed681587da2")
 		(property "Reference" "C5"
 			(at 132.08 138.43 0)
 			(effects
@@ -3638,10 +3521,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "33162da2-84e9-44da-8a4d-8c1676185870")
+			(uuid "ce36cbaf-d6df-59b0-af4e-3132cf2f0ddc")
 		)
 		(pin "2"
-			(uuid "2792e9a3-c1f4-484c-b192-2c77e9205dc2")
+			(uuid "8222fcfa-4ff9-5645-b960-5791a634d48e")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -3660,7 +3543,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b4585d11-a78e-44ff-a3c4-1539573563b5")
+		(uuid "e7a25add-ba82-5e6e-8fdc-4d98505286fc")
 	)
 	(label "GND"
 		(at 129.54 143.51 270)
@@ -3670,7 +3553,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f6250345-f06f-4c85-b08f-22de2631760b")
+		(uuid "8d6c027e-f888-5431-90a5-68ceee9fafa1")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -3680,7 +3563,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "2836cc0a-5a31-424d-9625-46875791f13d")
+		(uuid "79fee069-1402-5196-abe3-645662c6f385")
 		(property "Reference" "C6"
 			(at 152.4 138.43 0)
 			(effects
@@ -3736,10 +3619,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "24eba592-86d3-4f13-ab77-49a23dc96740")
+			(uuid "3e47f52e-7bd9-5ac2-bdd2-2a5f8c08e179")
 		)
 		(pin "2"
-			(uuid "8d81c430-7261-468e-9776-01f03cf1a5f7")
+			(uuid "ac8395aa-f90b-5ee7-9d78-c30b9169588b")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -3758,7 +3641,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3cf41d51-ea42-45e1-b53a-469985077ea9")
+		(uuid "6a533ef0-08d2-5eeb-98ce-0e03db54045e")
 	)
 	(label "GND"
 		(at 149.86 143.51 270)
@@ -3768,7 +3651,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "92428500-3570-4f6d-beca-5530c9471cbc")
+		(uuid "6d846e18-f1d4-5316-9aa6-938f9cc3df93")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3778,7 +3661,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d54f3ae7-7897-4756-b365-d3bac078070a")
+		(uuid "53e974aa-3d43-5dd3-9242-ac746c464644")
 		(property "Reference" "R1"
 			(at 273.05 58.42 0)
 			(effects
@@ -3834,10 +3717,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "a5abd5bd-7fb4-4095-a129-e1924724a341")
+			(uuid "d185d99a-2592-5b9f-96fb-7020cfe45fd2")
 		)
 		(pin "2"
-			(uuid "21c56af6-f2ff-4ca1-9565-87cb6a10b9c4")
+			(uuid "c8579fbb-f5b8-5dd2-bbdb-3ee8f64870a6")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -3856,7 +3739,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d45bbe83-2687-4587-b016-5a43048eab68")
+		(uuid "859c4554-dcf4-52f9-ba9c-0a9fbb7b94b3")
 	)
 	(label "SCL"
 		(at 270.51 63.5 270)
@@ -3866,7 +3749,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "35884bdf-a92c-4ced-ba1f-980ef284baa3")
+		(uuid "df86548b-db5d-50e3-a857-4673e31d9ce2")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3876,7 +3759,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "567f07de-78fd-4972-96b0-27915eb7e8f8")
+		(uuid "fa878168-49e5-5d3a-8f9e-0e6f5bbc14dd")
 		(property "Reference" "R2"
 			(at 287.02 58.42 0)
 			(effects
@@ -3932,10 +3815,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "3a0c8315-8cd1-4bfd-85e9-8445b62abf6a")
+			(uuid "2901b3aa-8ba8-5ac7-b931-28f38ebaeaf7")
 		)
 		(pin "2"
-			(uuid "0c6f1fef-ed0d-4086-a135-73f7cbc2bbaf")
+			(uuid "c2068e49-c0a1-50dc-8622-d514fa5c1488")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -3954,7 +3837,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f610073e-6e90-4d5d-a666-573bbd4caa39")
+		(uuid "85ff4894-b41d-57b2-b9d2-883cf784dd92")
 	)
 	(label "SDA"
 		(at 284.48 63.5 270)
@@ -3964,7 +3847,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f7ff796e-d197-4acc-9c3d-1cfc627c3207")
+		(uuid "1b028f69-8b26-5e9b-85eb-b15169fa6f4f")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
@@ -3974,7 +3857,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "baaad8f4-7d54-4b91-a096-5914e9c4dfec")
+		(uuid "601a6a3b-7aa1-52f6-a746-0859cae2d4de")
 		(property "Reference" "J2"
 			(at 331.47 64.77 0)
 			(effects
@@ -3991,7 +3874,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
 			(at 330.2 69.85 0)
 			(hide yes)
 			(effects
@@ -4009,7 +3892,25 @@
 				)
 			)
 		)
-		(property "Note" "ELEGOO 0.96in I2C OLED (GND,VCC,SCL,SDA)"
+		(property "MPN" "SM04B-SRSS-TB(LF)(SN)"
+			(at 330.2 69.85 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "JST"
+			(at 330.2 69.85 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Note" "STEMMA QT pinout; cable e.g. Adafruit 4397 to OLED header"
 			(at 330.2 69.85 0)
 			(hide yes)
 			(effects
@@ -4019,16 +3920,16 @@
 			)
 		)
 		(pin "1"
-			(uuid "2b2188e7-5c15-4923-9d69-a2d5f97da240")
+			(uuid "7701a930-1739-54f1-9eb7-94bc96a01531")
 		)
 		(pin "2"
-			(uuid "7555f97a-4e6a-49f0-9177-a8c1aa72d3a0")
+			(uuid "7ed5e663-368b-59fb-80de-f72dffd48665")
 		)
 		(pin "3"
-			(uuid "7d3d7b56-a2a4-4e4e-93ef-bf1c9d9180ef")
+			(uuid "350aa0a2-f75c-5a59-bc34-4d494730f7e1")
 		)
 		(pin "4"
-			(uuid "c4d56bbd-4d23-4f4f-8a88-1c29545b016c")
+			(uuid "329ff4e4-c6d6-5dd1-bcf8-78573323b42d")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -4047,7 +3948,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7afaeb46-69e0-4e44-9c00-64270afb5f6e")
+		(uuid "6ea1f364-08e0-57a3-9cb7-8bd53a68aa95")
 	)
 	(label "VSW"
 		(at 325.12 69.85 180)
@@ -4057,9 +3958,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "4c4d372e-4659-4b8b-98c9-a496c6093376")
+		(uuid "49a47770-4873-5612-b705-289b3bcac332")
 	)
-	(label "SCL"
+	(label "SDA"
 		(at 325.12 72.39 180)
 		(effects
 			(font
@@ -4067,9 +3968,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d0400215-65ca-4d41-91bb-853d15c18f1e")
+		(uuid "885485b1-910d-5d61-a347-dd862bd7b2c5")
 	)
-	(label "SDA"
+	(label "SCL"
 		(at 325.12 74.93 180)
 		(effects
 			(font
@@ -4077,7 +3978,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "dc17df40-543f-42f6-8b53-3949832880d4")
+		(uuid "d5480660-13bd-5ef8-9765-5400915b7c10")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
@@ -4087,7 +3988,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1aa0d804-0b8c-47b5-8bb8-d0a99ad864c7")
+		(uuid "fd3edb5a-c7f6-5fa0-89e6-a67fe95e239d")
 		(property "Reference" "J3"
 			(at 331.47 105.41 0)
 			(effects
@@ -4150,16 +4051,16 @@
 			)
 		)
 		(pin "1"
-			(uuid "6d72111a-2bc5-4be3-b96c-1aa97903e060")
+			(uuid "0f2d706c-9df4-5e29-aed3-18ac3817ba8f")
 		)
 		(pin "2"
-			(uuid "55dda8a6-626a-4c9d-826a-5cb94653744c")
+			(uuid "32460b1b-3ee6-55cc-8af8-fdd07f76d17e")
 		)
 		(pin "3"
-			(uuid "9ea997d9-1a67-4345-b804-c2a641c2de24")
+			(uuid "910ee14d-7ac2-5397-b053-5d63e702f061")
 		)
 		(pin "4"
-			(uuid "4a8dc445-d0a2-4081-81ca-27855c4b685e")
+			(uuid "ac378789-aa3e-5fdc-8c10-952ac654a12b")
 		)
 		(instances
 			(project "Moisture_Sensor"
@@ -4178,7 +4079,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "59f64fb2-64ae-433c-b732-bf13ccccbed7")
+		(uuid "9c465deb-81b3-50a0-830d-73bb7cac1c32")
 	)
 	(label "VSW"
 		(at 325.12 110.49 180)
@@ -4188,7 +4089,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d5faccff-5522-4f67-8c0e-4078320326cc")
+		(uuid "b96fd769-6246-53bf-b953-10883f6bafc5")
 	)
 	(label "SDA"
 		(at 325.12 113.03 180)
@@ -4198,7 +4099,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "661e84f9-1172-47cb-85cd-086ecef84c3c")
+		(uuid "38a5d95e-5336-58d0-abec-5ee82439cec1")
 	)
 	(label "SCL"
 		(at 325.12 115.57 180)
@@ -4208,125 +4109,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "437a8068-2274-4aef-9f6c-77661515fb15")
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 330.2 149.86 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp yes)
-		(uuid "3e3b07ab-d5c5-45a6-9387-97c8adde57bf")
-		(property "Reference" "J4"
-			(at 331.47 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Analog cap. sensor (alt)"
-			(at 331.47 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical"
-			(at 330.2 149.86 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 330.2 149.86 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "B3B-PH-K-S(LF)(SN)"
-			(at 330.2 149.86 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "JST"
-			(at 330.2 149.86 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Note" "Optional: generic v1.2/v2.0 sensor, TLC555 version only"
-			(at 330.2 149.86 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1d4257fb-37a2-43a6-9105-c29492195ee3")
-		)
-		(pin "2"
-			(uuid "2484e883-80b3-4332-a049-08b28e1bdaa1")
-		)
-		(pin "3"
-			(uuid "1c4527f7-9332-460f-bc79-02cbb85edf0d")
-		)
-		(instances
-			(project "Moisture_Sensor"
-				(path "/0e800fc4-907d-5dc6-8843-971325c920e2"
-					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(label "GND"
-		(at 325.12 147.32 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8f9b5cef-dea1-42c0-bb0f-c002c2ec16c8")
-	)
-	(label "VSW"
-		(at 325.12 149.86 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "3faefa18-4cfa-4e5c-b641-14ee7568b898")
-	)
-	(label "SENS_A"
-		(at 325.12 152.4 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5e637d8c-cb86-4229-811f-08c3a6a1ccf3")
+		(uuid "cac2473c-01cf-5847-8a7c-4a63bbed6c72")
 	)
 	(text "Button-activated Soil Moisture Meter  -  2xAAA (2.0-3.2V), no regulator\nIdle: MCU in power-down, TPS22917 off -> ~0.5 uA total.  Press SW1 -> PA6 wakes MCU ->\nLOAD_EN high -> VSW powers OLED + sensor -> read, display 15 s -> LOAD_EN low -> sleep."
 		(exclude_from_sim no)
@@ -4337,9 +4120,9 @@
 			)
 			(justify left top)
 		)
-		(uuid "a814f5db-c162-4e20-9fa7-d47dc887c8de")
+		(uuid "98501f65-ac87-52be-92f6-26676d081a6b")
 	)
-	(text "Firmware notes: run at 5 MHz (valid down to 1.8 V). Before LOAD_EN low, disable TWI and set\nPB0/PB1 (and PA5) to input w/o pull-up so the unpowered OLED/sensor aren't back-fed.\nBattery voltage measured internally (ADC: VDD vs. internal reference) - no divider needed.\nOLED module: bridge its onboard 662K LDO (VIN->3V3) so it runs to ~2.2 V. Low-batt cutoff ~2.2 V."
+	(text "Firmware notes: run at 5 MHz (valid down to 1.8 V). Before LOAD_EN low, disable TWI and set\nPB0/PB1 to input w/o pull-up so the unpowered OLED/sensor aren't back-fed.\nBattery voltage measured internally (ADC: VDD vs. internal reference) - no divider needed.\nOLED module: bridge its onboard 662K LDO (VIN->3V3) so it runs to ~2.2 V. Low-batt cutoff ~2.2 V."
 		(exclude_from_sim no)
 		(at 30 200 0)
 		(effects
@@ -4348,7 +4131,7 @@
 			)
 			(justify left top)
 		)
-		(uuid "c1dd8513-0e20-4dc0-86e9-c81cb4c05c36")
+		(uuid "6ddd440a-aaca-5461-bcce-e0f248d88657")
 	)
 	(sheet_instances
 		(path "/"

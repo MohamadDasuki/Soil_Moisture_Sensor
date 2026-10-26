@@ -4,7 +4,12 @@ from sexp import *
 OUT = r"C:\Users\dasukim\Desktop\Kicad\Moisture Sensor"
 PROJ = "Moisture_Sensor"
 ROOT = str(uuid.uuid5(uuid.NAMESPACE_DNS, "moisture-sensor-root"))
-U = lambda: str(uuid.uuid4())
+_n = [0]
+
+
+def U(key=None):
+    _n[0] += 1
+    return str(uuid.uuid5(uuid.UUID(ROOT), key or ("n%d" % _n[0])))
 
 # (ref, lib, name, value, footprint, x, y, {pin: net or None(=NC)}, extra props, dnp)
 FP_R = "Resistor_SMD:R_0603_1608Metric"
@@ -12,8 +17,9 @@ FP_C6 = "Capacitor_SMD:C_0603_1608Metric"
 FP_C8 = "Capacitor_SMD:C_0805_2012Metric"
 parts = [
     # --- Power input ---
-    ("BT1", "Device", "Battery", "2xAAA", "Battery:BatteryHolder_Keystone_2468_2xAAA",
-     40, 60, {"1": "BAT_RAW", "2": "GND"}, {"MPN": "2468", "Manufacturer": "Keystone"}, False),
+    ("J5", "Connector_Generic", "Conn_01x02", "BATTERY 2xAAA", "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+     40, 60, {"1": "BAT_RAW", "2": "GND"},
+     {"MPN": "B2B-PH-K-S(LF)(SN)", "Manufacturer": "JST", "Note": "2xAAA holder with JST-PH leads, in case (pin1 = +)"}, False),
     ("Q1", "Transistor_FET", "Q_PMOS_GSD", "DMG3415U", "Package_TO_SOT_SMD:SOT-23",
      80, 60, {"1": "GND", "2": "VBAT", "3": "BAT_RAW"},
      {"MPN": "DMG3415U-7", "Manufacturer": "Diodes Inc", "Note": "Reverse-polarity protection"}, False),
@@ -25,15 +31,15 @@ parts = [
     ("#FLG02", "power", "PWR_FLAG", "PWR_FLAG", "", 180, 52, {"1": "GND"}, {}, False),
     # --- MCU ---
     ("U1", "MCU_Microchip_ATtiny", "ATtiny1614-SS", "ATtiny1614-SSNR", None, 200, 130,
-     {"1": "VBAT", "14": "GND", "10": "UPDI", "2": "LOAD_EN", "3": "SENS_A", "4": "BTN",
+     {"1": "VBAT", "14": "GND", "10": "UPDI", "2": "LOAD_EN", "3": None, "4": "BTN",
       "9": "SCL", "8": "SDA",
       "11": None, "12": None, "13": None, "5": None, "6": None, "7": None},
      {"MPN": "ATTINY1614-SSNR", "Manufacturer": "Microchip"}, False),
-    ("J1", "Connector_Generic", "Conn_01x03", "UPDI", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
+    ("J1", "Connector_Generic", "Conn_01x03", "UPDI", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left",
      150, 175, {"1": "UPDI", "2": "GND", "3": "VBAT"},
-     {"Note": "Programming header (pogo pads / temporary header)"}, True),
-    ("SW1", "Switch", "SW_Push", "READ", "Button_Switch_THT:SW_PUSH_6mm",
-     260, 175, {"1": "BTN", "2": "GND"}, {"MPN": "B3F-1000", "Manufacturer": "Omron"}, False),
+     {"Note": "UPDI programming pads on PCB bottom (pogo / temporary header)"}, True),
+    ("SW1", "Switch", "SW_Push", "READ",     "Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2",
+         260, 175, {"1": "BTN", "2": "GND"}, {"MPN": "KMR221GLFS", "Manufacturer": "C&K"}, False),
     # --- Switched peripheral rail ---
     ("U2", "Power_Management", "TPS22917DBV", "TPS22917DBVR", None, 70, 140,
      {"1": "VBAT", "2": "GND", "3": "LOAD_EN", "4": "CT", "5": "QOD", "6": "VSW"},
@@ -54,15 +60,12 @@ parts = [
     ("R2", "Device", "R", "10k", FP_R, 285, 60, {"1": "VSW", "2": "SDA"},
      {"MPN": "RC0603FR-0710KL", "Manufacturer": "Yageo"}, False),
     # --- External connectors ---
-    ("J2", "Connector_Generic", "Conn_01x04", "OLED SSD1306 0.96in", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
-     330, 70, {"1": "GND", "2": "VSW", "3": "SCL", "4": "SDA"},
-     {"Note": "ELEGOO 0.96in I2C OLED (GND,VCC,SCL,SDA)"}, False),
+    ("J2", "Connector_Generic", "Conn_01x04",     "OLED SSD1306 0.96in", "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+         330, 70, {"1": "GND", "2": "VSW", "3": "SDA", "4": "SCL"},
+         {"MPN": "SM04B-SRSS-TB(LF)(SN)", "Manufacturer": "JST", "Note": "STEMMA QT pinout; cable e.g. Adafruit 4397 to OLED header"}, False),
     ("J3", "Connector_Generic", "Conn_01x04", "STEMMA QT soil sensor", "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
      330, 110, {"1": "GND", "2": "VSW", "3": "SDA", "4": "SCL"},
      {"MPN": "SM04B-SRSS-TB(LF)(SN)", "Manufacturer": "JST", "Note": "Adafruit 4026 capacitive soil sensor (I2C 0x36)"}, False),
-    ("J4", "Connector_Generic", "Conn_01x03", "Analog cap. sensor (alt)", "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical",
-     330, 150, {"1": "GND", "2": "VSW", "3": "SENS_A"},
-     {"MPN": "B3B-PH-K-S(LF)(SN)", "Manufacturer": "JST", "Note": "Optional: generic v1.2/v2.0 sensor, TLC555 version only"}, True),
 ]
 
 notes = [
@@ -70,7 +73,7 @@ notes = [
              "Idle: MCU in power-down, TPS22917 off -> ~0.5 uA total.  Press SW1 -> PA6 wakes MCU ->\n"
              "LOAD_EN high -> VSW powers OLED + sensor -> read, display 15 s -> LOAD_EN low -> sleep."),
     (30, 200, "Firmware notes: run at 5 MHz (valid down to 1.8 V). Before LOAD_EN low, disable TWI and set\n"
-              "PB0/PB1 (and PA5) to input w/o pull-up so the unpowered OLED/sensor aren't back-fed.\n"
+              "PB0/PB1 to input w/o pull-up so the unpowered OLED/sensor aren't back-fed.\n"
               "Battery voltage measured internally (ADC: VDD vs. internal reference) - no divider needed.\n"
               "OLED module: bridge its onboard 662K LDO (VIN->3V3) so it runs to ~2.2 V. Low-batt cutoff ~2.2 V."),
 ]
@@ -122,7 +125,7 @@ for ref, lib, name, val, fp, x, y, conns, extra, dnp in parts:
     s = [Sym("symbol"), [Sym("lib_id"), lid], [Sym("at"), x, y, 0], [Sym("unit"), 1],
          [Sym("exclude_from_sim"), Sym("no")], [Sym("in_bom"), Sym("no" if is_power else "yes")],
          [Sym("on_board"), Sym("no" if is_power else "yes")], [Sym("dnp"), Sym("yes" if dnp else "no")],
-         [Sym("uuid"), U()],
+         [Sym("uuid"), U("sym:" + ref)],
          prop("Reference", ref, *rpos, hide=is_power, justify=just),
          prop("Value", val, *vpos, justify=just),
          prop("Footprint", fp, x, y, hide=True),
