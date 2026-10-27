@@ -6,7 +6,7 @@
 "J1","UPDI","Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical","","","","1","DNP"
 "J2","OLED SSD1306 0.96in","Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical","Supplied Dupont wires soldered to pads (opt. 1x04 2.54mm header)","-","","1",""
 "J3","SOIL SENSOR v1.2","Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical","Supplied PH2.0-3P to Dupont cable soldered to pads","DIYmall","","1",""
-"J5","BATTERY 3xAAA","Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical","B2B-PH-K-S(LF)(SN)","JST","C131337","1",""
+"J5","BATTERY 3xAAA","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical","3xAAA holder leads soldered to pads","-","","1",""
 "Q1","AO3401A","Package_TO_SOT_SMD:SOT-23","AO3401A","Alpha & Omega","C15127","1",""
 "R1,R2","10k","Resistor_SMD:R_0603_1608Metric","0603WAF1002T5E","UNI-ROYAL","C25804","2",""
 "R3","0R","Resistor_SMD:R_0603_1608Metric","0603WAF0000T5E","UNI-ROYAL","C21189","1",""

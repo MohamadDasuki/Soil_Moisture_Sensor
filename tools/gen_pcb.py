@@ -18,6 +18,8 @@ OX, OY = 100.0, 100.0      # board origin on the page
 R_CORNER = 1.0
 P254 = 2.54
 YB = H - 1.8               # bottom-edge pad row
+MIN_TRACK = 0.2            # board minimum track width (mm)
+EDGE_CLR = 0.5             # copper-to-board-edge clearance (mm)
 
 # ref: (x, y, rot_deg, side)   coordinates relative to board top-left
 # 2.54 mm TH pad rows at rot 90 run left->right from pin 1
@@ -26,7 +28,7 @@ PLACE = {
     "J3": (13.0, 1.6, 90, "F"),       # soil sensor pads: GND VCC AOUT (top edge)
     "J1": (2.0, YB, 90, "F"),         # UPDI pads: UPDI GND VBAT (bottom edge)
     "SW1": (W - 2.0 - P254, YB, 90, "F"),  # panel button leads (bottom edge)
-    "J5": (2.6, 8.0, 0, "F"),         # battery JST-PH, vertical
+    "J5": (2.6, 7.2, 0, "F"),         # battery lead pads (+ top, - below)
     "Q1": (2.5, 13.4, 0, "F"),
     "C1": (6.0, 13.4, 90, "F"),
     "C2": (8.4, 6.0, 90, "F"),
@@ -37,8 +39,8 @@ PLACE = {
     "C5": (22.6, 9.4, 90, "F"),
     "C3": (18.4, 13.0, 90, "F"),
     "R3": (19.95, 13.0, 90, "F"),
-    "R1": (21.5, 13.0, 90, "F"),
-    "R2": (23.05, 13.0, 90, "F"),
+    "R1": (21.45, 13.0, 90, "F"),
+    "R2": (22.95, 13.0, 90, "F"),
 }
 
 SILK = [  # (text, x, y, rot, side)
@@ -49,9 +51,11 @@ SILK = [  # (text, x, y, rot, side)
     ("U", 2.0, YB - 2.3, 0, "B"), ("G", 4.54, YB - 2.3, 0, "B"), ("V", 7.08, YB - 2.3, 0, "B"),
     ("UPDI", 4.54, YB - 3.6, 0, "B"),
     ("BTN", W - 2.0 - P254 / 2, YB - 2.3, 0, "B"),
-    ("BATT +", 3.6, 10.6, 0, "B"),
+    ("B+", 4.7, 7.2, 0, "B"), ("B-", 4.7, 9.74, 0, "B"),
     ("SOIL METER rC", 13.5, 15.0, 0, "B"),
 ]
+# user-added back-silk credit (from KiCad edit 2836a30)
+CREDIT = ("MOHAMAD DASUKI\nRev 1.0.0", 15.5, 11.5)
 
 
 def netlist():
@@ -94,14 +98,19 @@ def add_arc(b, center, start, angle):
     b.Add(s)
 
 
-def outline(b):
-    r = R_CORNER
-    add_line(b, P(r, 0), P(W - r, 0)); add_line(b, P(W, r), P(W, H - r))
-    add_line(b, P(W - r, H), P(r, H)); add_line(b, P(0, H - r), P(0, r))
-    add_arc(b, P(W - r, r), P(W - r, 0), 90)
-    add_arc(b, P(W - r, H - r), P(W, H - r), 90)
-    add_arc(b, P(r, H - r), P(r, H), 90)
-    add_arc(b, P(r, r), P(0, r), 90)
+def outline(b, d=0.0):
+    """Rounded-rect Edge.Cuts; d > 0 insets it (used only for the router so it keeps EDGE_CLR from the real edge)."""
+    r = R_CORNER - d
+    add_line(b, P(d + r, d), P(W - d - r, d)); add_line(b, P(W - d, d + r), P(W - d, H - d - r))
+    add_line(b, P(W - d - r, H - d), P(d + r, H - d)); add_line(b, P(d, H - d - r), P(d, d + r))
+    add_arc(b, P(W - d - r, d + r), P(W - d - r, d), 90)
+    add_arc(b, P(W - d - r, H - d - r), P(W - d, H - d - r), 90)
+    add_arc(b, P(d + r, H - d - r), P(d + r, H - d), 90)
+    add_arc(b, P(d + r, d + r), P(d, d + r), 90)
+
+
+def edge_items(b):
+    return [d for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts]
 
 
 def zone(b, net, layer, prio):
@@ -109,9 +118,9 @@ def zone(b, net, layer, prio):
     z.SetLayer(layer); z.SetNet(net); z.SetAssignedPriority(prio)
     z.SetLocalClearance(MM(0.25)); z.SetMinThickness(MM(0.2))
     z.SetThermalReliefGap(MM(0.3)); z.SetThermalReliefSpokeWidth(MM(0.3))
-    z.SetPadConnection(pcbnew.ZONE_CONNECTION_FULL)   # SMD pads solid; TH connectors get thermals (below)
+    z.SetPadConnection(pcbnew.ZONE_CONNECTION_FULL)   # solid connection (also for the hand-soldered wire pads)
     ol = z.Outline(); ol.NewOutline()
-    i, c = 0.4, 1.2   # inset from edge, chamfer to clear the rounded corners
+    i, c = EDGE_CLR, 1.5   # inset from edge, chamfer to clear the rounded corners
     for x, y in [(c, i), (W - c, i), (W - i, c), (W - i, H - c), (W - c, H - i), (c, H - i), (i, H - c), (i, c)]:
         ol.Append(MM(OX + x), MM(OY + y))
     b.Add(z)
@@ -125,9 +134,9 @@ def build():
     nc = ds.m_NetSettings.GetDefaultNetclass()
     nc.SetTrackWidth(MM(0.25)); nc.SetClearance(MM(0.2))
     nc.SetViaDiameter(MM(0.6)); nc.SetViaDrill(MM(0.3))
-    ds.m_TrackMinWidth = MM(0.15); ds.m_MinClearance = MM(0.15)
+    ds.m_TrackMinWidth = MM(MIN_TRACK); ds.m_MinClearance = MM(0.15)
     ds.m_ViasMinSize = MM(0.5); ds.m_MinThroughDrill = MM(0.3)
-    ds.m_CopperEdgeClearance = MM(0.25)
+    ds.m_CopperEdgeClearance = MM(EDGE_CLR)
     ds.m_HoleToHoleMin = MM(0.25)
 
     netobj = {}
@@ -143,8 +152,6 @@ def build():
         fp.SetFPIDAsString(c["footprint"])
         fp.SetPath(pcbnew.KIID_PATH("/" + c["uuid"]))
         fp.SetDNP(c["dnp"])
-        if ref in ("J1", "J2", "J3", "J5", "SW1"):
-            fp.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_THERMAL)
         for k, v in c["fields"].items():
             if k not in ("Footprint", "Description"):
                 fp.SetField(k, v)
@@ -174,19 +181,38 @@ def build():
             tx.SetMirrored(True)
         b.Add(tx)
 
+    t, x, y = CREDIT
+    tx = pcbnew.PCB_TEXT(b)
+    tx.SetText(t); tx.SetPosition(P(x, y)); tx.SetLayer(pcbnew.B_SilkS)
+    tx.SetTextSize(VECTOR2I(MM(1), MM(1))); tx.SetTextThickness(MM(0.2)); tx.SetBold(True)
+    tx.SetVertJustify(pcbnew.GR_TEXT_V_ALIGN_BOTTOM); tx.SetMirrored(True)
+    b.Add(tx)
+
     outline(b)
     return b, netobj
 
 
 def route(b):
-    tools = os.path.join(HERE, "tools")
+    tools = os.environ.get("FREEROUTING_DIR", os.path.join(HERE, "tools"))  # dir with freerouting.jar + jre/
     java = glob.glob(os.path.join(tools, "jre", "*", "bin", "java.exe"))[0]
     dsn = os.path.join(HERE, NAME + ".dsn"); ses = os.path.join(HERE, NAME + ".ses")
     if os.path.exists(ses):
         os.remove(ses)
-    assert pcbnew.ExportSpecctraDSN(b, dsn), "DSN export failed"
+    real = edge_items(b)
+    for e in real:
+        b.Remove(e)
+    outline(b, EDGE_CLR - 0.15)   # router keeps ~0.2 mm clearance from this inset outline (+margin)
+    nc = b.GetDesignSettings().m_NetSettings.GetDefaultNetclass()
+    nc.SetClearance(MM(0.21))    # margin for Freerouting coordinate rounding
+    ok = pcbnew.ExportSpecctraDSN(b, dsn)
+    nc.SetClearance(MM(0.2))
+    for e in edge_items(b):
+        b.Remove(e)
+    for e in real:
+        b.Add(e)
+    assert ok, "DSN export failed"
     r = subprocess.run([java, "-jar", os.path.join(tools, "freerouting.jar"), "-de", dsn, "-do", ses,
-                        "-mp", "40", "--gui.enabled=false"], capture_output=True, text=True, timeout=900)
+                        "-mp", "100", "--gui.enabled=false"], capture_output=True, text=True, timeout=900)
     tail = (r.stdout + r.stderr).strip().splitlines()[-8:]
     print("\n".join(tail))
     assert os.path.exists(ses), "Freerouting produced no SES"
@@ -200,6 +226,10 @@ def route(b):
                   and v.GetPosition() in (t.GetStart(), t.GetEnd())}
         if len(layers) < 2:
             b.Remove(v)
+    # Freerouting necks tracks down at fine-pitch pads; enforce the board minimum width
+    for t in b.GetTracks():
+        if t.GetClass() == "PCB_TRACK" and t.GetWidth() < MM(MIN_TRACK):
+            t.SetWidth(MM(MIN_TRACK))
 
 
 def main():
@@ -220,10 +250,10 @@ def write_rules():
     pro = os.path.join(PRJ, NAME + ".kicad_pro")
     d = json.load(open(pro))
     d.setdefault("board", {}).setdefault("design_settings", {})["rules"] = {
-        "min_clearance": 0.15, "min_track_width": 0.12, "min_via_diameter": 0.5,
-        "min_through_hole_diameter": 0.3, "min_copper_edge_clearance": 0.25,
-        "min_hole_to_hole": 0.25, "min_via_annular_width": 0.1, "min_hole_clearance": 0.2,
-        "min_silk_clearance": 0.0, "min_text_height": 0.6, "min_text_thickness": 0.1}
+        "min_clearance": 0.0, "min_track_width": MIN_TRACK, "min_via_diameter": 0.5,
+        "min_through_hole_diameter": 0.3, "min_copper_edge_clearance": EDGE_CLR,
+        "min_hole_to_hole": 0.25, "min_via_annular_width": 0.1, "min_hole_clearance": 0.25,
+        "min_silk_clearance": 0.0, "min_text_height": 0.8, "min_text_thickness": 0.08}
     d.setdefault("net_settings", {})["classes"] = [{
         "name": "Default", "clearance": 0.2, "track_width": 0.25, "via_diameter": 0.6, "via_drill": 0.3,
         "microvia_diameter": 0.3, "microvia_drill": 0.1, "diff_pair_width": 0.2, "diff_pair_gap": 0.25,

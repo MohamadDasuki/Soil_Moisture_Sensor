@@ -9,3 +9,6 @@ _autosave-*
 *.tmp
 __pycache__/
 .history/
+
+*.dsn
+*.ses

@@ -1893,7 +1893,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 			(at 39.37 59.69 0)
 			(hide yes)
 			(effects
@@ -1911,7 +1911,7 @@
 				)
 			)
 		)
-		(property "MPN" "B2B-PH-K-S(LF)(SN)"
+		(property "MPN" "3xAAA holder leads soldered to pads"
 			(at 39.37 59.69 0)
 			(hide yes)
 			(effects
@@ -1920,7 +1920,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "JST"
+		(property "Manufacturer" "-"
 			(at 39.37 59.69 0)
 			(hide yes)
 			(effects
@@ -1929,16 +1929,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C131337"
-			(at 39.37 59.69 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Note" "3xAAA holder (3.0-4.8V) with JST-PH leads, in case (pin1 = +)"
+		(property "Note" "3xAAA holder (3.0-4.8V) in case; pin1 = +, pin2 = -"
 			(at 39.37 59.69 0)
 			(hide yes)
 			(effects

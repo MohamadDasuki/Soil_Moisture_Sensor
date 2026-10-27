@@ -17,9 +17,9 @@ FP_C6 = "Capacitor_SMD:C_0603_1608Metric"
 FP_C8 = "Capacitor_SMD:C_0805_2012Metric"
 parts = [
     # --- Power input ---
-    ("J5", "Connector_Generic", "Conn_01x02", "BATTERY 3xAAA", "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+    ("J5", "Connector_Generic", "Conn_01x02", "BATTERY 3xAAA", "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
      40, 60, {"1": "BAT_RAW", "2": "GND"},
-     {"MPN": "B2B-PH-K-S(LF)(SN)", "Manufacturer": "JST", "LCSC": "C131337", "Note": "3xAAA holder (3.0-4.8V) with JST-PH leads, in case (pin1 = +)"}, False),
+     {"MPN": "3xAAA holder leads soldered to pads", "Manufacturer": "-", "Note": "3xAAA holder (3.0-4.8V) in case; pin1 = +, pin2 = -"}, False),
     ("Q1", "Transistor_FET", "Q_PMOS_GSD", "AO3401A", "Package_TO_SOT_SMD:SOT-23",
      80, 60, {"1": "GND", "2": "VBAT", "3": "BAT_RAW"},
      {"MPN": "AO3401A", "Manufacturer": "Alpha & Omega", "LCSC": "C15127", "Note": "Reverse-polarity protection"}, False),

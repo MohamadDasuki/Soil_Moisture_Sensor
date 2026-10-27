@@ -5,8 +5,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 b = pcbnew.LoadBoard(os.path.join(ROOT, "Moisture_Sensor.kicad_pcb"))
 pts = [pt for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts for pt in (d.GetStart(), d.GetEnd())]
 x0 = pcbnew.ToMM(min(p.x for p in pts)); y0 = pcbnew.ToMM(max(p.y for p in pts))  # bottom-left corner
-# Not machine-placed: wire pads (J2 OLED, J3 sensor, SW1 button) and DNP UPDI pads (J1)
-SKIP = {"J1", "J2", "J3", "SW1"}
+# Not machine-placed: wire pads (J2 OLED, J3 sensor, J5 battery, SW1 button) and DNP UPDI pads (J1)
+SKIP = {"J1", "J2", "J3", "J5", "SW1"}
 # KiCad -> JLCPCB rotation offsets (community-verified JLC conventions)
 ROT = [(r"^SOT-23", 180), (r"^SOIC-", 270)]
 rows = []
