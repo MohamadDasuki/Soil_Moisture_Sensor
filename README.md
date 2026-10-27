@@ -59,6 +59,21 @@ Arduino IDE + megaTinyCore, board ATtiny1614, programmer SerialUPDI. Remove batt
 - With arduino-cli, use the FQBN `megaTinyCore:megaavr:atxy4:chip=1614,clock=5internal,bodmode=disabled`.
 
 Calibration defaults are typical v1.2 values (dry ≈ 600/1023, wet ≈ 280/1023). Calibrate once per sensor for accurate readings.
+## Ordering (JLCPCB)
+
+The `fab/` folder holds everything needed to order the board:
+
+| File | Upload as |
+|---|---|
+| `Moisture_Sensor_gerbers_JLCPCB.zip` | Gerber file (2 layers, 24 × 19 mm, 1.6 mm FR-4) |
+| `BOM_JLCPCB.csv` | PCB Assembly → BOM (LCSC part numbers) |
+| `CPL_JLCPCB.csv` | PCB Assembly → CPL (pick and place) |
+
+- **Assembly:** top side only, SMD parts only. J1, J2, J3, J5 and SW1 are hand-soldered wire pads and aren't placed.
+- **Before confirming,** check pin 1 of U1, U2 and Q1 in JLCPCB's placement preview. The CPL applies the usual rotation offsets for SOT-23 and SOIC parts.
+- **Regenerating:**
+  - CPL and JLCPCB BOM: run `tools/gen_cpl.py` with KiCad's Python.
+  - Gerbers and drill files: export with `kicad-cli pcb export gerbers` (subtract soldermask, no X2) and `kicad-cli pcb export drill` (Excellon, mm, separate PTH/NPTH).
 ## Enclosure
 
 ![Inside](docs/enc_inside.png)
