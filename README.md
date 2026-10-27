@@ -40,6 +40,25 @@ Arduino IDE + megaTinyCore, board ATtiny1614, programmer SerialUPDI. Remove batt
 | SCL | PB0 | 9 |
 | UPDI | PA0 | 10 |
 
+## Firmware
+
+`firmware/MoistureMeter/` contains an Arduino sketch for megaTinyCore. It uses 4.7 KB of flash and 75 B of RAM, and needs no external libraries. The SSD1306 driver in `oled.h` is buffer-less (text only).
+
+**Operation**
+- **Idle:** the MCU is in power-down and the load switch is off (well under 1 µA).
+- **Press the button:** the OLED and sensor power up and the battery voltage is checked. The display then shows a live moisture % reading, refreshed every second, with a status line (DRY / OK / WET) and a bar graph. After 15 s it powers everything off.
+- **Short press while on:** restarts the 15 s timer.
+- **Hold 3 s while on:** starts calibration. Follow the prompts: sensor in air, press; sensor in water up to the line, press. The values are saved to EEPROM.
+- **Battery below 3.1 V:** shows "BATTERY EMPTY" instead of a reading. Below 3.4 V, the header shows "LOW BAT".
+- **Battery voltage:** measured by reading the internal 1.1 V reference against VDD, so no divider is needed. The sensor is read ratiometrically (ADC reference = VDD), so battery droop cancels out.
+
+**Build and flash**
+- Arduino IDE: add the board manager URL `http://drazzy.com/package_drazzy.com_index.json` and install **megaTinyCore**.
+- Tools settings: Chip **ATtiny1614**, Clock **5 MHz internal**, BOD **Disabled/Disabled**, millis timer **default (not RTC)**, Programmer **SerialUPDI**.
+- Run **Burn Bootloader** once (this only sets fuses), then **Upload Using Programmer**.
+- With arduino-cli, use the FQBN `megaTinyCore:megaavr:atxy4:chip=1614,clock=5internal,bodmode=disabled`.
+
+Calibration defaults are typical v1.2 values (dry ≈ 600/1023, wet ≈ 280/1023). Calibrate once per sensor for accurate readings.
 ## Enclosure
 
 ![Inside](docs/enc_inside.png)
