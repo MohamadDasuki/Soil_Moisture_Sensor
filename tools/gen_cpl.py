@@ -1,4 +1,4 @@
-"""Generate JLCPCB CPL (pick & place) from the KiCad board.
+"""Generate JLCPCB CPL (pick & place) and BOM from the KiCad board.
 Run with KiCad's python:  "C:\Program Files\KiCad\10.0\bin\python.exe" tools\gen_cpl.py"""
 import csv, os, re, pcbnew
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,3 +24,18 @@ os.makedirs(os.path.join(ROOT, "fab"), exist_ok=True)
 with open(os.path.join(ROOT, "fab", "CPL_JLCPCB.csv"), "w", newline="") as fh:
     c = csv.writer(fh); c.writerow(["Designator", "Mid X", "Mid Y", "Layer", "Rotation"]); c.writerows(rows)
 print(len(rows), "parts")
+# JLCPCB BOM: group placed parts by LCSC number
+groups = {}
+for f in b.GetFootprints():
+    ref = f.GetReference()
+    if ref in SKIP or f.IsDNP():
+        continue
+    lcsc = f.GetFieldText("LCSC") if f.HasField("LCSC") else ""
+    key = (f.GetValue(), f.GetFPID().GetLibItemName().wx_str(), lcsc)
+    groups.setdefault(key, []).append(ref)
+nat = lambda r: (re.sub(r"\d", "", r), int(re.sub(r"\D", "", r)))
+with open(os.path.join(ROOT, "fab", "BOM_JLCPCB.csv"), "w", newline="") as fh:
+    c = csv.writer(fh); c.writerow(["Comment", "Designator", "Footprint", "LCSC Part #"])
+    for (val, fp, lcsc), refs in sorted(groups.items(), key=lambda kv: nat(sorted(kv[1], key=nat)[0])):
+        c.writerow([val, ",".join(sorted(refs, key=nat)), fp, lcsc])
+print(len(groups), "BOM lines")

@@ -11,7 +11,7 @@ Press the button -> MCU wakes -> load switch powers the OLED and sensor -> moist
 |---|---|---|
 | U1 | MCU | Microchip ATtiny1614-SSNR (SOIC-14) |
 | J5 | Battery | 3xAAA holder with leads -> JST-PH 2-pin (direct, 3.0-4.8 V) |
-| Q1 | Reverse-polarity protection | Diodes DMG3415U P-FET |
+| Q1 | Reverse-polarity protection | AOS AO3401A P-FET |
 | U2 | Peripheral power switch | TI TPS22917DBVR load switch |
 | J2 | Display | ELEGOO 0.96" SSD1306 I2C OLED (0x3C) - 2.54 mm pads, GND-VCC-SCL-SDA |
 | J3 | Sensor | DIYmall capacitive soil sensor v1.2 (analog) - 2.54 mm pads, GND-VCC-AOUT |

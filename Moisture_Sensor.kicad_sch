@@ -6,7 +6,7 @@
 	(paper "A3")
 	(title_block
 		(title "Soil Moisture Meter")
-		(date "2026-10-26")
+		(date "2026-10-27")
 		(rev "A")
 		(comment 1 "2xAAA, ATtiny1614, TPS22917 load switch, SSD1306 OLED, STEMMA soil sensor")
 	)
@@ -1929,6 +1929,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C131337"
+			(at 39.37 59.69 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Note" "3xAAA holder (3.0-4.8V) with JST-PH leads, in case (pin1 = +)"
 			(at 39.37 59.69 0)
 			(hide yes)
@@ -1991,7 +2000,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "DMG3415U"
+		(property "Value" "AO3401A"
 			(at 86.36 60.96 0)
 			(effects
 				(font
@@ -2018,7 +2027,7 @@
 				)
 			)
 		)
-		(property "MPN" "DMG3415U-7"
+		(property "MPN" "AO3401A"
 			(at 80.01 59.69 0)
 			(hide yes)
 			(effects
@@ -2027,7 +2036,16 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Diodes Inc"
+		(property "Manufacturer" "Alpha & Omega"
+			(at 80.01 59.69 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C15127"
 			(at 80.01 59.69 0)
 			(hide yes)
 			(effects
@@ -2111,7 +2129,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10uF 10V X5R"
+		(property "Value" "10uF 25V X5R"
 			(at 107.95 60.96 0)
 			(effects
 				(font
@@ -2138,7 +2156,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL21A106KPFNNNE"
+		(property "MPN" "CL21A106KAYNNNE"
 			(at 105.41 59.69 0)
 			(hide yes)
 			(effects
@@ -2148,6 +2166,15 @@
 			)
 		)
 		(property "Manufacturer" "Samsung"
+			(at 105.41 59.69 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C15850"
 			(at 105.41 59.69 0)
 			(hide yes)
 			(effects
@@ -2236,7 +2263,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL10B104KB8NNNC"
+		(property "MPN" "CC0603KRX7R9BB104"
 			(at 129.54 59.69 0)
 			(hide yes)
 			(effects
@@ -2245,7 +2272,16 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "Yageo"
+			(at 129.54 59.69 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C14663"
 			(at 129.54 59.69 0)
 			(hide yes)
 			(effects
@@ -2478,6 +2514,15 @@
 			)
 		)
 		(property "Manufacturer" "Microchip"
+			(at 199.39 129.54 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C481364"
 			(at 199.39 129.54 0)
 			(hide yes)
 			(effects
@@ -2907,6 +2952,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C2681320"
+			(at 69.85 139.7 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b74fae86-d85c-592e-a118-f1b362add9a7")
 		)
@@ -3039,7 +3093,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603JR-070RL"
+		(property "MPN" "0603WAF0000T5E"
 			(at 95.25 160.02 0)
 			(hide yes)
 			(effects
@@ -3048,7 +3102,16 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 95.25 160.02 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C21189"
 			(at 95.25 160.02 0)
 			(hide yes)
 			(effects
@@ -3164,6 +3227,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C1588"
+			(at 39.37 165.1 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Note" "Load switch slew-rate"
 			(at 39.37 165.1 0)
 			(hide yes)
@@ -3226,7 +3298,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22uF 10V X5R"
+		(property "Value" "22uF 25V X5R"
 			(at 107.95 140.97 0)
 			(effects
 				(font
@@ -3253,7 +3325,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL21A226MPQNNNE"
+		(property "MPN" "CL21A226MAQNNNE"
 			(at 105.41 139.7 0)
 			(hide yes)
 			(effects
@@ -3263,6 +3335,15 @@
 			)
 		)
 		(property "Manufacturer" "Samsung"
+			(at 105.41 139.7 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C45783"
 			(at 105.41 139.7 0)
 			(hide yes)
 			(effects
@@ -3351,7 +3432,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL10B104KB8NNNC"
+		(property "MPN" "CC0603KRX7R9BB104"
 			(at 129.54 139.7 0)
 			(hide yes)
 			(effects
@@ -3360,7 +3441,16 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "Yageo"
+			(at 129.54 139.7 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C14663"
 			(at 129.54 139.7 0)
 			(hide yes)
 			(effects
@@ -3449,7 +3539,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL10B104KB8NNNC"
+		(property "MPN" "CC0603KRX7R9BB104"
 			(at 149.86 139.7 0)
 			(hide yes)
 			(effects
@@ -3458,7 +3548,16 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "Yageo"
+			(at 149.86 139.7 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C14663"
 			(at 149.86 139.7 0)
 			(hide yes)
 			(effects
@@ -3547,7 +3646,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-0710KL"
+		(property "MPN" "0603WAF1002T5E"
 			(at 270.51 59.69 0)
 			(hide yes)
 			(effects
@@ -3556,7 +3655,16 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 270.51 59.69 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 270.51 59.69 0)
 			(hide yes)
 			(effects
@@ -3645,7 +3753,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-0710KL"
+		(property "MPN" "0603WAF1002T5E"
 			(at 284.48 59.69 0)
 			(hide yes)
 			(effects
@@ -3654,7 +3762,16 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 284.48 59.69 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 284.48 59.69 0)
 			(hide yes)
 			(effects

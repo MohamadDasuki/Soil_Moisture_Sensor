@@ -151,7 +151,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-0710KL"
+		(property "MPN" "0603WAF1002T5E"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -163,7 +163,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -172,6 +172,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "378446b5-6228-4bba-8c54-1f3879c2ebe1")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -609,7 +620,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-0710KL"
+		(property "MPN" "0603WAF1002T5E"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -621,7 +632,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -630,6 +641,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "537c0546-6164-4f64-b6b2-4ba8bb14223a")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -782,7 +804,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603JR-070RL"
+		(property "MPN" "0603WAF0000T5E"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -794,7 +816,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -815,6 +837,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C21189"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ad8b7d58-9a6a-4efe-b071-f08b9a067e86")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -921,7 +954,7 @@
 				)
 			)
 		)
-		(property "Value" "DMG3415U"
+		(property "Value" "AO3401A"
 			(at 0 2.4 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -967,7 +1000,7 @@
 				)
 			)
 		)
-		(property "MPN" "DMG3415U-7"
+		(property "MPN" "AO3401A"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -979,7 +1012,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Diodes Inc"
+		(property "Manufacturer" "Alpha & Omega"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -1000,6 +1033,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C15127"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c50be403-3db1-4168-b201-0f4dbfc08b00")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -1405,6 +1449,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C131337"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8bc55a25-a9ac-4fc5-b52e-0ebb5c909de2")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -2325,6 +2380,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C2681320"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3f031e52-77f3-4361-9391-3d255c643357")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(path "/669c3c40-9e58-599d-ae06-901646c69b16")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
@@ -2668,7 +2734,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL10B104KB8NNNC"
+		(property "MPN" "CC0603KRX7R9BB104"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -2680,7 +2746,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "Yageo"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -2689,6 +2755,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3df945fb-bd2b-43c3-b0ac-6f50c33c66ff")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -2841,7 +2918,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL10B104KB8NNNC"
+		(property "MPN" "CC0603KRX7R9BB104"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -2853,7 +2930,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "Yageo"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -2862,6 +2939,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "84589fc6-26e1-400a-b9f4-c9bf718152a4")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -3050,6 +3138,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C1588"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "632aa1c5-21a6-4bdb-96eb-b930333f8312")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(path "/9b0ff358-b3ac-5baf-9ded-117da7c167ec")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
@@ -3199,7 +3298,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL10B104KB8NNNC"
+		(property "MPN" "CC0603KRX7R9BB104"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -3211,7 +3310,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "Yageo"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -3220,6 +3319,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ff587df8-13bc-467e-81a4-09043219f39c")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -3393,6 +3503,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C481364"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e89314b8-cb04-4657-b0a4-3c1dda3ec28d")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -4033,7 +4154,7 @@
 				)
 			)
 		)
-		(property "Value" "22uF 10V X5R"
+		(property "Value" "22uF 25V X5R"
 			(at 0 1.68 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -4079,7 +4200,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL21A226MPQNNNE"
+		(property "MPN" "CL21A226MAQNNNE"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -4100,6 +4221,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C45783"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "aba567b9-16d7-470d-875f-bb938c48e070")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -4206,7 +4338,7 @@
 				)
 			)
 		)
-		(property "Value" "10uF 10V X5R"
+		(property "Value" "10uF 25V X5R"
 			(at 0 1.68 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -4252,7 +4384,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL21A106KPFNNNE"
+		(property "MPN" "CL21A106KAYNNNE"
 			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -4273,6 +4405,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C15850"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c17f39aa-8a01-4190-84a4-9103e9235a77")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
